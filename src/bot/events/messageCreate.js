@@ -10,21 +10,6 @@ class MessageEvent extends BaseEvent {
     async execute(msg) {
         const { bot } = this;
 
-        if (!bot.db.hasGuild(msg.channel.guild.id)) {
-            await this.bot.db.createGuild(msg.channel.guild.id);
-            msg.channel.createMessage('<:KonataOk:438856307580338176> **|** Legacy / Old guild has been made into my database, might wanna do another command?');
-            return;
-        } else if (!bot.db.hasUser(msg.author.id)) {
-            await this.bot.db.createUser(msg.author.id);
-            msg.channel.createMessage('<:KonataOk:438856307580338176> **|** Ok, ' + msg.author.mention + ', you have been added into my database, might wanna do another command?');
-            return;
-        }
-
-        if (bot.db.isBlacklisted(msg.channel.guild.id, msg.author.id)) {
-            msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Aww, you're blacklisted for \`${bot.db.getBlacklist(msg.channel.guild.id, msg.author.id).reason}\`. :/`);
-            return;
-        }
-
         if (msg.author.bot || !bot.ready) return;
 
         let prefix = false;
