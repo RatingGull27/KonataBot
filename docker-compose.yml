@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rethinkdb:
+    image: rethinkdb:alpine
+  konata:
+    build: .
+    depends_on:
+      - rethinkdb
+    ports:
+      - "8080:8080"

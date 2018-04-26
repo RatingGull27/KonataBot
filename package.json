@@ -1,0 +1,26 @@
+{
+    "name": "konatabot",
+    "description": "Konata is a multipurpose discord bot that you can use for Moderation, Music, Memes, with a lovely dashboard.",
+    "version": "0.0.1",
+    "dependencies": {
+        "eris": "0.8.5",
+        "animu.js": "0.0.1",
+        "dadjoke.js": "0.0.1",
+        "megumin.js": "0.0.1",
+        "rethinkdbdash": "2.3.31",
+        "snekfetch": "4.0.0",
+        "uws": "9.148.0",
+        "eris-lavalink": "1.0.2",
+        "node-osu": "1.3.0",
+        "sj.reggol": "1.1.1"
+    },
+    "author": "August (Chris)",
+    "bugs": {
+        "url": "https://github.com/KonataBot/KonataBot/issues"
+    },
+    "homepage": "https://github.com/KonataBot/KonataBot#readme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KonataBot/KonataBot"
+    }
+}
