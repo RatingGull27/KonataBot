@@ -25,6 +25,8 @@ module.exports = {
                 }
             }
         });
+
+        return Eris;
     },
     codeblock: (lang, owo) => {
         const block = `${'```'}${lang || ''}\n${owo}\n${'```'}`;

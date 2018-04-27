@@ -27,7 +27,7 @@ module.exports = bot = ({
   
         return coins
     },
-    removeCoins: (id, amount) => {
+    removeCoins: async(id, amount) => {
         let coins = await this.getCoins(id);
         coins.coin = Math.max(0, coins.coin - amount);
     

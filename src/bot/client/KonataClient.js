@@ -3,14 +3,14 @@ global.Promise = require('bluebird');
 const Util = require('../../utils/Util');
 const Eris = Util.initEris(require('eris')).Client;
 const Logger = require('sj.reggol');
-const MeguminClient = require('megumin.js');
-const AnimuClient = require('animu.js');
-const DadJokeClient = require('dadjoke.js');
+const { MeguminClient } = require('megumin.js');
+const { CFClient } = require('animu.js');
+const { DadJokeClient } = require('dadjoke.js');
 const KitsuClient = require('kitsu');
 const { Api } = require('node-osu');
 const Gearbox = require('../modules/Gearbox');
-const GameRotater = require('../modules/GameRotater');
 const fs = require('fs');
+const WebhookClient = require('../../utils/webhook/WebhookClient');
 
 class KonataClient extends Eris {
     constructor(token, options = {}) {
@@ -19,22 +19,23 @@ class KonataClient extends Eris {
         this.commands = [];
         this.aliases = [];
         this.config = require('../config.json');
-        this.animu = new AnimuClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
-        this.megumin = new MeguminClient();
-        this.dadjoke = new DadJokeClient();
+        this.animu = new CFClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
+        this.megumin = new MeguminClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
+        this.dadjoke = new DadJokeClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
         this.log = new Logger({
             useTimestamp: true
         });
         this.gearbox = new Gearbox(this);
-        this.rotater = GameRotater;
-        /*this.osu = new Api(this.config.tokens.osu, {
+        this.osu = new Api(this.config.tokens.osu, {
             notFoundAsError: false,
             completeScores: true
-        });*/
+        });
         this.kitsu = new KitsuClient();
-        this.webhook = new (require('../../util/webhook/WebhookClient'))(this, this.config.webhooks.id, this.config.wehooks.token);
+        this.webhook = new WebhookClient(this.config.webhook.id, this.config.webhook.token);
         this.db = require('../database/DatabaseUtil');
         this.r = require('../database/Database');
+        this.utils = require('../../utils/Util');
+        this.snek = require('snekfetch');
     }
 
     async launch() {

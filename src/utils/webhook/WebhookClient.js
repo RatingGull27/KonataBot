@@ -1,9 +1,8 @@
 class WebhookService {
-    constructor(bot, id, token) {
-        this.bot = bot;
+    constructor(id, token) {
         this.id = id;
         this.token = token;
-        this.snek = bot._snek;
+        this.snek = require('snekfetch');
     }
 
     async createMessage(content) {

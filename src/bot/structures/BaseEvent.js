@@ -6,3 +6,5 @@ class BaseEvent {
         this.bot = client;
     }
 }
+
+module.exports = BaseEvent;
