@@ -1,59 +1,26 @@
-const Emitter = require('events').EventEmitter;
-
-module.exports = class MessageCollector extends Emitter {
-    constructor(bot, channel, filter, options = {}) {
-        super();
-
-        this.filter = filter;
-        this.chan = channel;
-        this.options = options;
-        this.ended = false;
-        this.collections = [];
-        this.bot = bot;
-        this.listeners = (msg) => this.verify(msg);
-
-        this.bot.on('messageCreate', this.listeners);
-        if (options.time) {
-            setTimeout(() => this.stop(time), options.time);
-        }
+class MessageCollector {
+    constructor(client) {
+        this.collectors = [];
+        client.on('messageCreate', this.check.bind(this));
     }
 
-    /**
-     * Verify the message that the collector is saying
-     * 
-     * @param {Object} msg Your message paramter
-     * @return {Promise<void>} The awaitted message
-     */
-    verify(msg) {
-        if (this.channel.id !== msg.channel.id) return;
+    awaitMessages(check, options, channelId) {
+        return new Promise(accept => {
+            this.collectors.push({channelId, check, accept});
+            if (options.timeout) setTimeout(accept, options.timeout);
+        });
+    }
 
-        if (this.filter(msg)) {
-            this.collections.push(msg);
+    check(message) {
+        const _collectors = this.collectors.filter(c => c.channelId === message.channel.id);
 
-            this.emit('message', msg);
-
-            if (this.collections >= this.options.maxMatches) {
-                this.stop('maxMatches');
+        for (const collector of _collectors) {
+            if (collector.check(message)) {
+                collector.accept(message);
+                this.collectors.splice(this.collectors.indexOf(collector), 1);
             }
-            
-            return true;
         }
-
-        return false;
-    }
-
-    /**
-     * Stop the collector
-     * 
-     * @param {String} reason The reason to stop.
-     * @return {void} Stops it
-     */
-    stop(reason = '') {
-        if (this.ended) return;
-
-        this.ended = true;
-        this.bot.removeListener('messageCreate', this.listeners);
-
-        this.emit('end', this.collections, reason)
     }
 }
+
+module.exports = MessageCollector;

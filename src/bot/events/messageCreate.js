@@ -17,7 +17,7 @@ class MessageEvent extends BaseEvent {
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
 
-        const prefixes = [bot.config.prefix, `${prefixMention}`, 'k;', 'k!', '!k.']; // @mention, konata!, k;, k!, !.k =>Prefixes
+        const prefixes = [bot.config.prefix, `${prefixMention}`, 'k;', 'k!', '!k.', 'konata ']; // @mention, konata!, k;, k!, !k., and konata  => Prefixes
 
         for (const thisPrefix of prefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
