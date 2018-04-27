@@ -36,6 +36,9 @@ class KonataClient extends Eris {
         this.r = require('../database/Database');
         this.utils = require('../../utils/Util');
         this.snek = require('snekfetch');
+        this.messages = 0;
+        this.commandsExecuted = 0;
+        this.version = require('../../../package.json').version;
     }
 
     async launch() {
@@ -85,6 +88,14 @@ class KonataClient extends Eris {
                 this.on(__.uwu.name, wrapper);
             });
         });
+    }
+
+    async reboot() {
+        this.log.info('Konata is being reconnected...');
+        await this.disconnect({
+            reconnect: false
+        });
+        await this.launch();
     }
 }
 

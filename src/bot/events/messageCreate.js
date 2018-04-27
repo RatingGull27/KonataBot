@@ -10,6 +10,8 @@ class MessageEvent extends BaseEvent {
     async execute(msg) {
         const { bot } = this;
 
+        bot.messages++;
+
         if (msg.author.bot || !bot.ready) return;
 
         let prefix = false;

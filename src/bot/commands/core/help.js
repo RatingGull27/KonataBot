@@ -16,7 +16,7 @@ class HelpCommand extends Command {
             const categories = {};
 
             for (const cmd of this.bot.commands) {
-                if (cmd.options.isOwner && !this.bot.config.devs.includes(msg.author.id)) {
+                if (cmd.options.ownerOnly && !this.bot.config.devs.includes(msg.author.id)) {
                     continue;
                 }
 
