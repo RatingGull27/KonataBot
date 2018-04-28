@@ -1,7 +1,7 @@
 const KonataClient = require('./client/KonataClient');
 const config = require('./config.json');
 
-const client = new KonataClient(config.tokens.Discord, {
+const client = new KonataClient(config.tokens.Dev, {
     maxShards: 'auto',
     disableEveryone: true,
     autoReconnect: true,

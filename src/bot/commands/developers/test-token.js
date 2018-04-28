@@ -21,7 +21,7 @@ class TestTokenCommand extends Command {
         const ctx = await msg.channel.createMessage(`<:KonataOk:438856307580338176> **|** Testing token...`);
         const client = new Eris(args[0]);
         client.on('ready', () => {
-            ctx.edit(`<:KonataOwO:438519335556874240> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}**`);
+            ctx.edit(`<:KonataOwO:438519335556874240> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}** guilds.`);
             client.disconnect({
                 reconnect: false
             });

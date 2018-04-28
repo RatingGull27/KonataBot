@@ -19,9 +19,10 @@ class MessageEvent extends BaseEvent {
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
 
-        const prefixes = [bot.config.prefix, `${prefixMention}`, 'k;', 'k!', '!k.', 'konata ']; // @mention, konata!, k;, k!, !k., and konata  => Prefixes
-
-        for (const thisPrefix of prefixes) {
+        const prefixes = ['konata!', `${prefixMention}`, 'k;', 'k!', '!k.', 'konata ']; // @mention, konata!, k;, k!, !k., and konata  => Prefixes
+        const devPrefixes = [bot.config.prefix, `${prefixMention}`, 'dev!', 'dev '];
+        
+        for (const thisPrefix of devPrefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
         }
 
@@ -37,7 +38,7 @@ class MessageEvent extends BaseEvent {
                 return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
             }
 
-            if (cmd.options.guildOnly && !msg.channel.dm) {
+            if (cmd.options.guildOnly && msg.channel.dm) {
                 return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** Y-you might wanna be in a guild to execute this command.`);
             }
 
