@@ -20,8 +20,8 @@ class ReadyEvent extends Event {
             bot.editStatus('online', {
                 name: `${bot.config.prefix}help | [${bot.guilds.size}] | ${games[Math.floor(Math.random() * games.length)]}`,
                 type: 0
-            }, 60000);
-        });
+            });
+        }, 60000);
         bot.webhook.createMessage({
             title: "Konata Izumi ;; Connected via Discord",
             description: "Hello! I connected via Discord.",

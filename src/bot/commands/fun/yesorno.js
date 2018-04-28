@@ -16,12 +16,12 @@ class YesOrNoCommand extends Command {
         if (!args[0]) return msg.channel.createMessage(`:mega: **|** Invalid usage, execute this: \`${this.bot.config.prefix}help yesorno\`.`);
         const m = await msg.channel.createMessage(`:mega: **|** Generating answer...`);
 
-        const { body } = await this.bot.snek.get('https://yesno.wtf/api/');
+        const { body } = await this.bot.snek.get('https://yesno.wtf/api');
 
         await m.delete();
         msg.channel.createMessage({ embed: {
             title: "Konata Izumi » Yes or No!",
-            desciption: `The answer to \`${args.join(" ")}\` is: \`${body.answer.toString()}\`!`,
+            desciption: `The answer to \`${args.join(" ")}\` is: \`${body.answer}\`!`,
             image: {
                 url: `${body.image}`
             },
