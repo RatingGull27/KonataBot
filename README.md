@@ -14,7 +14,8 @@ We will not show you how to install Konata but we can give out what she needs an
 
 ### Libraries
 * Node.js => Runtime enviornment,
-* RethinkDB => Database
+* RethinkDB => Database,
+* Python 3.6 => Music Module
 
 ## Support
 If you need help with Konata (NOT INSTALLING HER); You can join our support server.

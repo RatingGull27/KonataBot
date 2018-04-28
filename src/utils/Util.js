@@ -62,5 +62,15 @@ module.exports = {
         const hrs = Math.floor(ms / (1000 * 60 * 60)).toString();
         const days = Math.floor(ms / (1000 * 60 * 60 * 24)).toString();
         return `${days.padStart(2, '0')}:${hrs.padStart(2, '0')}:${min.padStart(2, '0')}:${sec.padStart(2, '0')}`;
+    },
+    mod: (msg, id, reason, action) => {
+        const target = msg.channel.guild.members.filter(m => m.id === id)[0];
+        if (!target) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** User hasn't been found.`);
+        msg.channel.guild.banMember(id, 7, reason)
+            .then(_ => {
+                msg.channel.createMessage(`:white_check_mark: **|** Successfully ${action.toString()} <@${target.id}> for \`${reason}\`.`);
+            }).catch(e => {
+                msg.channel.createMessage(`:x: **|** An error has occured while ${action.toString} <@${target.id}> for \`${reason}\`.`);
+            });
     }
 };
