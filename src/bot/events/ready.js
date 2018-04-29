@@ -22,6 +22,7 @@ class ReadyEvent extends Event {
                 type: 0
             });
         }, 60000);
+        bot.utils.sleep(30000);
         bot.webhook.createMessage({
             title: "Konata Izumi ;; Connected via Discord",
             description: "Hello! I connected via Discord.",
