@@ -132,5 +132,89 @@ module.exports = {
      * @param {Number} ms The time in milliseconds
      * @returns {Promise<void>} The thing sleeping.
      */
-    sleep: (ms) => new Promise(res => setTimeout(res, ms))
+    sleep: (ms) => new Promise(res => setTimeout(res, ms)),
+    retriveOsuUser: (bot, msg, user, mode, modeName = 'standard') => {
+        bot.snek.get(`https://osu.ppy.sh/api/get_user?k=${bot.config.tokens.osu}&u=${user}&m=${mode}`)
+        .then(res => {
+            // Lemmmy photo
+            const lemmmy = `http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${user}&mode=${mode}&pp=1&countryrank&onlineindicator=undefined`;
+            const data = res.body[0];
+
+            msg.channel.createMessage({ embed: {
+                title: "Konata Izumi » osu! Statistics",
+                description: `Here is **${data.username}** (ID: **${data.user_id}**)'s osu!${modeName} statistics:`,
+                fields: [{
+                    name: "» User Catched Beats",
+                    value: `• **300**: ${data.count300}\n• **100**: ${data.count100}\n• **50**: ${data.count50}`,
+                    inline: true
+                },
+                {
+                    name: "» Other",
+                    value: `• **Play Count**: ${data.playcount}\n• **Ranked/Total Score**: ${data.ranked_score}/${data.total_score}\n• **PP/PP Rank**: ${data.pp_raw}/${data.pp_rank}\n• **Country/PP Country Rank**: ${data.country}/${data.pp_country_rank}`,
+                    inline: true
+                },
+                {
+                    name: "» SS, S, A Counts",
+                    value: `• **SS**: ${data.count_rank_ss}\n• **S**: ${data.count_rank_s}\n• **A**: ${data.count_rank_a}`,
+                    inline: true
+                },
+                {
+                    name: "» Accuracy",
+                    value: `${data.accuracy}%`,
+                    inline: true
+                }],
+                color: bot.utils.color,
+                image: {
+                    url: lemmmy
+                }
+                }});
+            })
+            .catch(e => {
+                msg.channel.createMessage(bot.utils.codeblock('js', e.stack));
+            });
+    },
+    retriveOsuBeatmap: (bot, msg, id) => {
+        bot.snek.get(`https://osu.ppy.sh/api/get_beatmaps?k=${bot.config.tokens.osu}&b=${id}`)
+            .then(res => {
+                const data = res.body[0];
+
+                msg.channel.createMessage({ embed: {
+                    title: "Konata Izumi » osu!beatmap statistics",
+                    description: `Here is **${data.artist} – ${data.title}** (ID: **${data.beatmap_id}**)'s beatmaps information:`,
+                    fields: [{
+                        name: "» Beatmap Information",
+                        value: `• **Total Length**: ${data.total_length}\n• **Hit Length**: ${data.hit_length}\n• Who created it?\n\t• **User**: ${data.creator} (\`${bot.config.prefix}osu-user standard ${data.creator}\`)\n• **BPM**: ${data.bpm}\n• **Max Combo**: ${data.max_combo}\n• **Play/Pass Count**\n\t• **Play**: ${data.playcount}\n\t• **Pass**: ${data.passcount}`
+                    }],
+                    color: bot.utils.color
+                }});
+            })
+            .catch(e => {
+                msg.channel.createMessage(bot.utils.codeblock('js', e.stack));
+            });
+    },
+    retriveOsuBest: (bot, msg, user) => {
+        bot.snek.get(`https://osu.ppy.sh/api/get_user_best?k=${bot.config.tokens.osu}&u=${user}&type=string&limit=5`)
+            .then(res => {
+                const data1 = res.body[0];
+                const data2 = res.body[1];
+                const data3 = res.body[2];
+                const data4 = res.body[3];
+                const data5 = res.body[4];
+
+                msg.channel.createMessage({
+                    embed: {
+                        title: "Konata Izumi » osu!best statistics",
+                        description: `Here is **${user}**'s best statistics so far:`,
+                        fields: [{
+                            name: "» Best Scores:",
+                            value: `\`\`\`ini\n[ #1 ]\n• Beatmap ID: ${data1.beatmap_id} (${bot.config.prefix}osu!beatmap ${data1.beatmap_id})\n• Counts:\n\t50: ${data1.count50}\`\`\``
+                        }],
+                        color: bot.utils.color
+                    }
+                });
+            })
+            .catch(e => {
+                msg.channel.createMessage(bot.utils.codeblock('js', e.stack));
+            });
+    }
 };
