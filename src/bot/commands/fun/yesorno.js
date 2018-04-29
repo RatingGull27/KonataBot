@@ -21,7 +21,7 @@ class YesOrNoCommand extends Command {
         await m.delete();
         msg.channel.createMessage({ embed: {
             title: "Konata Izumi » Yes or No!",
-            desciption: `The answer to \`${args.join(" ")}\` is: \`${body.answer}\`!`,
+            description: `The answer to \`${args.join(" ")}\` is: \`${body.answer}\`!`,
             image: {
                 url: `${body.image}`
             },
