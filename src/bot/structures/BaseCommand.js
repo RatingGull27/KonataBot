@@ -1,5 +1,5 @@
 class BaseCommand {
-    constructor(client, {
+    constructor(bot, {
         name = null,
         desc = "No description?",
         usage = "No usage?",
@@ -11,7 +11,7 @@ class BaseCommand {
         nsfwOnly = false,
         enabled = true
     }) {
-        this.bot = client;
+        this.bot = bot;
         this.options = { name, desc, usage, category, aliases, examples, guildOnly, ownerOnly, nsfwOnly, enabled };
     }
 
