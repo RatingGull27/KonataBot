@@ -27,12 +27,13 @@ class MessageEvent extends BaseEvent {
         }
 
         if (!prefix) return;
-
         
         const args = msg.content.slice(prefix.length).trim().split(/ +/g);
         const command = args.shift();
         let cmd = this.bot.commands.find(c => c.options.name.includes(command) || c.options.aliases.includes(command));
     
+        if (!command) return;
+
         if (cmd) {
             if (cmd.options.nsfw && !msg.channel.nsfw) {
                 return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
