@@ -24,4 +24,5 @@ If you need help with Konata (NOT INSTALLING HER); You can join our support serv
 
 ## Credits
 * dragonfire => `Util#trimArray`, `Util#shoten`, and most of the search category commands;
-* Mayo => `reddit` command
+* Mayo => `reddit` command;
+* llama => `owoify` and `cringify` command.
