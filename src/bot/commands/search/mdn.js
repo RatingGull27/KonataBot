@@ -13,7 +13,8 @@ class MDNCommand extends Command {
             examples: [
                 'konata mdn Object',
                 'konata mozilla TypeError'
-            ]
+            ],
+            category: 'Search'
         });
     }
 

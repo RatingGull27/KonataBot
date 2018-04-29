@@ -31,7 +31,7 @@ class KonataClient extends Eris {
             completeScores: true
         });
         this.kitsu = new KitsuClient();
-        this.webhook = new WebhookClient(this.config.webhook.id, this.config.webhook.token);
+        this.webhook = new WebhookClient(this.config.webhook_dev.id, this.config.webhook_dev.token);
         this.db = require('../database/DatabaseUtil');
         this.r = require('../database/Database');
         this.utils = require('../../utils/Util');

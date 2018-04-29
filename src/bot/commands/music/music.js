@@ -7,7 +7,8 @@ class MusicCommand extends Command {
             desc: 'Shows what the music commands are.',
             usage: 'music',
             aliases: ['musica'],
-            examples: ['konata music']
+            examples: ['konata music'],
+            category: 'Music'
         });
     }
 
