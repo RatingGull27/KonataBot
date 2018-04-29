@@ -35,7 +35,7 @@ class NPMCommand extends Command {
             description: `__**Package ${body.name}**__\n${body.description || 'None'}`,
             fields: [{
                 name: "» Version",
-                value: body['dist-tags'].lastest,
+                value: body['dist-tags'].latest,
                 inline: true
             },
             {
@@ -65,7 +65,7 @@ class NPMCommand extends Command {
             },
             {
                 name: "» Dependencies",
-                value: dependencies && dependencies.length ? `${dependencies.join('`, `')}` : 'None',
+                value: dependencies && dependencies.length ? `\`${dependencies.join('`, `')}\`` : 'None',
                 inline: true
             },
             {
