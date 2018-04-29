@@ -4,7 +4,7 @@ const no = ['nuuu', 'no', 'nada'];
 module.exports = {
     color: 3877972,
     formatHelp: (bot) => {
-        const str = `__**Konata's Commands**__\n\t<:KonataHi:438518453083701249> Hello! I'm Konata, your helper.\n\t<:KonataOwO:438519335556874240> To get extended help, do \`konata!help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:438856307580338176> To execute a command, do \`konata!<command>\` or \`@Konata#2684 <command>\``;
+        const str = `__**Konata's Commands**__\n\t<:KonataHi:438518453083701249> Hello! I'm Konata, your helper.\n\t<:KonataOwO:438519335556874240> To get extended help, do \`${bot.config.prefix}help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:438856307580338176> To execute a command, do \`${bot.config.prefix}<command>\` or \`@Konata#2684 <command>\``;
         return str;
     },
     initEris: (Eris) => {
@@ -63,14 +63,20 @@ module.exports = {
         const days = Math.floor(ms / (1000 * 60 * 60 * 24)).toString();
         return `${days.padStart(2, '0')}:${hrs.padStart(2, '0')}:${min.padStart(2, '0')}:${sec.padStart(2, '0')}`;
     },
-    mod: (msg, id, reason, action) => {
-        const target = msg.channel.guild.members.filter(m => m.id === id)[0];
-        if (!target) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** User hasn't been found.`);
-        msg.channel.guild.banMember(id, 7, reason)
-            .then(_ => {
-                msg.channel.createMessage(`:white_check_mark: **|** Successfully ${action.toString()} <@${target.id}> for \`${reason}\`.`);
-            }).catch(e => {
-                msg.channel.createMessage(`:x: **|** An error has occured while ${action.toString} <@${target.id}> for \`${reason}\`.`);
-            });
+    shorten: (text, maxLength = 2000) =>  {
+        return text.length > maxLength ? `${text.substr(0, maxLength - 3)}...` : text;
+    },
+    trimArray: (arr, maxLen = 10)  => {
+        if (arr.length > maxLen) {
+			const len = arr.length - maxLen;
+			arr = arr.slice(0, maxLen);
+			arr.push(`${len} more...`);
+		}
+        return arr;
+    },
+    base64: (text, mode = 'encode') => {
+        if (mode === 'encode') return Buffer.from(text).toString('base64');
+        if (mode === 'decode') return Buffer.from(text, 'base64').toString('utf8') || null;
+        throw new TypeError(`${mode} is not supported as an base64 mode.`);
     }
 };

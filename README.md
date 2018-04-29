@@ -21,3 +21,7 @@ We will not show you how to install Konata but we can give out what she needs an
 If you need help with Konata (NOT INSTALLING HER); You can join our support server.
 
 [![Konata's Hangout](https://discordapp.com/api/guilds/382725233695522816/embed.png?style=banner3)](https://discord.gg/RDKNApX)
+
+## Credits
+* dragonfire => `Util#trimArray`, `Util#shoten`, and most of the search category commands;
+* Mayo => `reddit` command
