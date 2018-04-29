@@ -5,7 +5,7 @@ const client = new KonataClient(config.tokens.Dev, {
     maxShards: 'auto',
     disableEveryone: true,
     autoReconnect: true,
-    defaultImageFont: 'png',
+    defaultImageFormat: 'png',
     getAllUsers: true
 });
 
