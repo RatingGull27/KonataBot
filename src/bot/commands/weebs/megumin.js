@@ -12,8 +12,7 @@ class MeguminCommand extends Command {
             examples: [
                 'konata megumin'
             ],
-            category: 'Weebs',
-            enabled: false
+            category: 'Weebs'
         });
     }
 
