@@ -206,8 +206,24 @@ module.exports = {
                         title: "Konata Izumi » osu!best statistics",
                         description: `Here is **${user}**'s best statistics so far:`,
                         fields: [{
-                            name: "» Best Scores:",
-                            value: `\`\`\`ini\n[ #1 ]\n• Beatmap ID: ${data1.beatmap_id} (${bot.config.prefix}osu!beatmap ${data1.beatmap_id})\n• Counts:\n\t50: ${data1.count50}\`\`\``
+                            name: "» Best Scores (#1)",
+                            value: `\`\`\`ini\n[ #1 ]\n• Beatmap ID: ${data1.beatmap_id} (${bot.config.prefix}osu!beatmap ${data1.beatmap_id})\n• Counts:\n\t• 50: ${data1.count50}\n\t• 100: ${data1.count100}\n\t• 300: ${data1.count300}\n• Date: ${new Date(data1.date).toDateString()}\n• Rank: ${data1.rank}\n• PP Gained: ${data1.pp}\`\`\``
+                        },
+                        {
+                            name: "» Best Scores (#2)",
+                            value: `\`\`\`ini\n[ #2 ]\n• Beatmap ID: ${data2.beatmap_id} (${bot.config.prefix}osu!beatmap ${data2.beatmap_id})\n• Counts:\n\t• 50: ${data2.count50}\n\t• 100: ${data2.count100}\n\t• 300: ${data2.count300}\n• Date: ${new Date(data2.date).toDateString()}\n• Rank: ${data2.rank}\n• PP Gained: ${data2.pp}\`\`\``
+                        },
+                        {
+                            name: "» Best Scores (#3)",
+                            value: `\`\`\`ini\n[ #3 ]\n• Beatmap ID: ${data3.beatmap_id} (${bot.config.prefix}osu!beatmap ${data3.beatmap_id})\n• Counts:\n\t• 50: ${data3.count50}\n\t• 100: ${data3.count100}\n\t• 300: ${data3.count300}\n• Date: ${new Date(data3.date).toDateString()}\n• Rank: ${data3.rank}\n• PP Gained: ${data3.pp}\`\`\``
+                        },
+                        {
+                            name: "» Best Scores (#4)",
+                            value: `\`\`\`ini\n[ #4 ]\n• Beatmap ID: ${data4.beatmap_id} (${bot.config.prefix}osu!beatmap ${data4.beatmap_id})\n• Counts:\n\t• 50: ${data4.count50}\n\t• 100: ${data4.count100}\n\t• 300: ${data4.count300}\n• Date: ${new Date(data4.date).toDateString()}\n• Rank: ${data4.rank}\n• PP Gained: ${data4.pp}\`\`\``
+                        },
+                        {
+                            name: "» Best Scores (#5)",
+                            value: `\`\`\`ini\n[ #5 ]\n• Beatmap ID: ${data5.beatmap_id} (${bot.config.prefix}osu!beatmap ${data5.beatmap_id})\n• Counts:\n\t• 50: ${data5.count50}\n\t• 100: ${data5.count100}\n\t• 300: ${data5.count300}\n• Date: ${new Date(data5.date).toDateString()}\n• Rank: ${data5.rank}\n• PP Gained: ${data5.pp}\`\`\``
                         }],
                         color: bot.utils.color
                     }
