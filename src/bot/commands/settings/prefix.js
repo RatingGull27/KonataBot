@@ -17,7 +17,7 @@ class PrefixCommand extends Command {
     }
 
     async execute(ctx, args) {
-        this.bot.r.table('settings').get(ctx.channel.id).run((err, entry) => {
+        this.bot.r.table('settings').get(ctx.channel.guild.id).run((err, entry) => {
             if (!ctx.member.permission.has('manageGuild') && !this.bot.config.devs.includes(ctx.author.id) && args[0]) return ctx.channel.createMessage(':x: **|** You can\'t set a prefix without the `manageGuild` permission.');
             if (!args[0]) return ctx.channel.createMessage(`<:Wink:438840967869497357> **|** Current Prefix for **${ctx.channel.guild.name}** is: \`${entry.prefix || this.bot.config.prefix}\`.`);
 

@@ -7,15 +7,15 @@ module.exports = {
      * 
      * @returns {Number} the number of the color.
      */
-    color: 3877972,
+    color: 12021369,
     /**
      * Formats the bot's description (For the `help` command.)
      * 
      * @param {KonataClient} bot The bot.
      * @returns {String} The string.
      */
-    formatHelp: (bot) => {
-        const str = `__**Konata's Commands**__\n\t<:KonataHi:438518453083701249> Hello! I'm Konata, your helper.\n\t<:KonataOwO:438519335556874240> To get extended help, do \`${bot.config.prefix}help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:438856307580338176> To execute a command, do \`${bot.config.prefix}<command>\` or \`@Konata#2684 <command>\``;
+    formatHelp: (bot, prefix) => {
+        const str = `__**Konata's Commands**__\n\t<:KonataHi:438518453083701249> Hello! I'm Konata, your helper.\n\t<:KonataOwO:438519335556874240> To get extended help, do \`${prefix}help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:438856307580338176> To execute a command, do \`${prefix}<command>\` or \`@Konata#2684 <command>\``;
         return str;
     },
     /**
@@ -26,17 +26,6 @@ module.exports = {
      */
     initEris: (Eris) => {
         const MessageCollector = require('./collector/MessageCollector');
-
-        Object.defineProperty(Eris.Channel.prototype, 'awaitMessages', {
-            value: (bot) => {
-                const collector = new MessageCollector(bot);
-                return new Promise(res => {
-                    collector.on('end', (...args) => {
-                        res(args);
-                    });
-                });
-            }
-        });
 
         Object.defineProperty(Eris.TextChannel.prototype, 'awaitMessages', {
             async value(bot, predicate, options = {}) {
@@ -232,5 +221,15 @@ module.exports = {
             .catch(e => {
                 msg.channel.createMessage(bot.utils.codeblock('js', e.stack));
             });
+    },
+    removeDuplicateArray: (array) => {
+        return Array.from(new Set(array).values());
+    },
+    getHentaiCoins: (bot, id) => {
+        return new Promise(result => {
+            bot.r.table('economy').get(id).run(res => {
+                result(res);
+            });
+        });
     }
 };

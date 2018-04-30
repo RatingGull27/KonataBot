@@ -1,4 +1,4 @@
-exports.handle = (bot, user) => {
+module.exports = (bot, user) => {
     return new Promise((resolve, reject) => {
 		if (/^\d+$/.test(user)) {
 			const user = bot.users.get(user);
