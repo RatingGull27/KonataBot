@@ -7,7 +7,6 @@ const { MeguminClient } = require('megumin.js');
 const { CFClient } = require('animu.js');
 const { DadJokeClient } = require('dadjoke.js');
 const KitsuClient = require('kitsu');
-const { Api } = require('node-osu');
 const Gearbox = require('../modules/Gearbox');
 const fs = require('fs');
 const WebhookClient = require('../../utils/webhook/WebhookClient');
@@ -26,13 +25,8 @@ class KonataClient extends Eris {
             useTimestamp: true
         });
         this.gearbox = new Gearbox(this);
-        this.osu = new Api(this.config.tokens.osu, {
-            notFoundAsError: false,
-            completeScores: true
-        });
         this.kitsu = new KitsuClient();
         this.webhook = new WebhookClient(this.config.webhook_dev.id, this.config.webhook_dev.token);
-        this.db = require('../database/DatabaseUtil');
         this.r = require('../database/Database');
         this.utils = require('../../utils/Util');
         this.snek = require('snekfetch');
@@ -53,18 +47,18 @@ class KonataClient extends Eris {
             fs.readdir(`./commands/${categories[i]}`, (err, files) => {
                 if (err) this.log.error(`\n${err.stack}`);
                 this.log.info(`Loading "${files.length}" commands from category "${categories[i]}"`);
-                files.forEach(_ => {
+                files.forEach(f => {
                     try {
-                        const Command = require(`../commands/${categories[i]}/${_}`);
+                        const Command = require(`../commands/${categories[i]}/${f}`);
                         const cmd = new Command(this);
     
                         if (!cmd.options.aliases || !cmd.options.enabled) return;
     
                         this.commands.push(cmd);
-                        this.aliases.forEach(__ => this.aliases.push(__));
+                        this.aliases.forEach(a => this.aliases.push(a));
                         this.log.info(`Loaded "${cmd.options.name}"!`);
                     } catch(e) {
-                        this.log.error(`Command "${_.replace('.js', '')}": ${e.stack}`);
+                        this.log.error(`Command "${f.replace('.js', '')}": ${e.stack}`);
                     }
                 });
             });
@@ -73,19 +67,19 @@ class KonataClient extends Eris {
         fs.readdir('./events', (err, files) => {
             if (err) this.log.error(`${err.stack}`);
             this.log.info(`Loading "${files.length}" events...`);
-            files.forEach(_ => {
-                const Event = require(`../events/${_}`);
-                const __ = new Event(this);
+            files.forEach(f => {
+                const Event = require(`../events/${f}`);
+                const e = new Event(this);
 
                 const wrapper = async(...args) => {
                     try {
-                        await __.execute(...args);
+                        await e.execute(...args);
                     } catch(err) {
                         this.log.error(err.stack);
                     }
                 }
 
-                this.on(__.uwu.name, wrapper);
+                this.on(e.uwu.name, wrapper);
             });
         });
     }
@@ -95,6 +89,7 @@ class KonataClient extends Eris {
         await this.disconnect({
             reconnect: false
         });
+        this.utils.sleep(60000); // Sleeps for 60 seconds
         await this.launch();
     }
 }

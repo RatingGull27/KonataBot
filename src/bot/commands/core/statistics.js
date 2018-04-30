@@ -15,42 +15,17 @@ class StatisticsCommand extends Command {
     async execute(msg, args) {
         return msg.channel.createMessage({ embed: {
             title: "Konata Izumi » Realtime Statistics",
-            description: `**Uptime**: ${await this.bot.utils.formatDuration(process.uptime())}`,
             fields: [{
-                name: "» Guilds",
-                value: this.bot.guilds.size,
-                inline: true
-            },
-            {
-                name: "» Users",
-                value: this.bot.users.size,
-                inline: true
-            },
-            {
-                name: "» Shard Count",
-                value: this.bot.shards.size,
+                name: "» Misc",
+                value: `• **Guilds**: ${this.bot.guilds.size}\n• **Users**: ${this.bot.users.size}\n• **Channels**: ${Object.keys(this.bot.channelGuildMap).length}\n• **Commands/Messages Seen**:\n\t• **Messages**: ${this.bot.messages.toLocaleString()}\n\t• **Commands Executed**: ${this.bot.commandsExecuted.toLocaleString()}`,
                 inline: true
             },
             {
                 name: "» Versions",
-                value: `» Node.js: ${process.version}\n» Eris: v${erisVersion}\n» KonataBot: v${this.bot.version}`,
-                inline: false
-            },
-            {
-                name: "» Commands Executed",
-                value: this.bot.commandsExecuted,
+                value: `• Node.js: ${process.version}\n• Eris: v${erisVersion}\n• KonataBot: v${this.bot.version}`,
                 inline: true
             },
-            {
-                name: "» Messages Seen",
-                value: this.bot.messages,
-                inline: true
-            },
-            {
-                name: "» Channels",
-                value: Object.keys(this.bot.channelGuildMap).length,
-                inline: true
-            }],
+            ],
             color: this.bot.utils.color
         }});
     }

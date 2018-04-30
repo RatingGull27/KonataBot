@@ -17,7 +17,7 @@ class BotListCommand extends Command {
     }
 
     async execute(msg, args) {
-        const { shorten, color } = this.bot.utils;
+        const { shorten, color, codeblock } = this.bot.utils;
         if (!this.bot.config.tokens.oliyBots) return msg.channel.createMessage(':x: **|** `discordbots.org` API not avaliable.');
         if (!args[0]) return msg.channel.createMessage(':x: **|** I can\'t search a bot if I don\'t have a bot specified.');
         let id = 0;
@@ -51,7 +51,7 @@ class BotListCommand extends Command {
             })
             .catch(e => {
                 if (e.status === '404') return msg.channel.createMessage(':x: **|** Bot not found.');
-                msg.channel.createMessage(":x: **|** An error has occured while pulling that bot.");
+                msg.channel.createMessage(":x: **|** An error has occured while pulling that bot." + codeblock('js', e.stack));
             });
     }
 }

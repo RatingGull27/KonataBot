@@ -21,13 +21,20 @@ class RedditCommand extends Command {
         if (!('display_name' in body.data)) return msg.channel.createMessage('<:KonataCry:438856292178591745> **|** Unavaliable subreddit.');
         await ctx.delete();
         msg.channel.createMessage({ embed: {
-            title: `Konata Izumi » Subreddit \`${args[0]}\``,
-            description: `Description: **${body.data.public_description}**`,
+            title: `${body.data.title}`,
+            description: `Here is some information about subreddit \`${args[0]}\``,
             url: `https://reddit.com/r/${args[0]}`,
             thumbnail: {
                 url: body.data.icon_img
             },
-            color: this.bot.utils.color
+            color: this.bot.utils.color,
+            image: {
+                url: body.data.banner_img
+            },
+            fields: [{
+                name: "» Subreddit Information",
+                value: `• **Subreddit Type**: ${body.data.subreddit_type.toString()}\n• **Description**: ${body.data.public_description}\n• **Active Users**: ${body.data.active_user_count}`
+            }]
         }});
     }
 }

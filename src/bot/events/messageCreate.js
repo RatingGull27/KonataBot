@@ -9,18 +9,60 @@ class MessageEvent extends BaseEvent {
 
     async execute(msg) {
         const { bot } = this;
-
         bot.messages++;
 
         if (msg.author.bot || !bot.ready) return;
 
-        let prefix = false;
+        const guildConfig = await this.bot.r.table('guilds').get(msg.channel.guild.id).run();
+        const userConfig = await this.bot.r.table('users').get(msg.author.id).run();
+        
+        if (!guildConfig) await this.bot.r.table('guilds').insert({
+            id: msg.channel.guild.id,
+            locale: 'en_US',
+            prefix: bot.config.prefix,
+            disabledCommands: [],
+            farewellMessages: {
+                message: null,
+                channel: null
+            },
+            greetingMessage: {
+                message: null,
+                channel: null
+            },
+            cases: [],
+            modLog: {
+                channel: null
+            }
+        }).run();
 
+        if (!userConfig) await this.bot.r.table('users').insert({
+            id: msg.author.id,
+            economy: {
+                coins: 0,
+                streak: {
+                    time: 0,
+                    streak: 0
+                }
+            },
+            profiles: {
+                notes: {
+                    userID: null,
+                    note: null,
+                    username: null
+                },
+                married: {
+                    user: null,
+                    userID: null
+                }
+            }
+        }).run();
+        let gPrefix = guildConfig.prefix || bot.config.prefix;
+
+        let prefix = false;
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
-
-        const prefixes = ['konata!', `${prefixMention}`, 'k;', 'k!', '!k.', 'konata ']; // @mention, konata!, k;, k!, !k., and konata  => Prefixes
-        const devPrefixes = [bot.config.prefix, `${prefixMention}`, 'dev!', 'dev '];
+        const prefixes = [gPrefix, `${prefixMention}`, 'k!', '!k.', 'konata '];
+        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev '];
         
         for (const thisPrefix of devPrefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
@@ -32,7 +74,7 @@ class MessageEvent extends BaseEvent {
         const command = args.shift();
         let cmd = this.bot.commands.find(c => c.options.name.includes(command) || c.options.aliases.includes(command));
     
-        if (!command) return;
+        if (!command || guildConfig.disabledCommands.includes(cmd)) return;
 
         if (cmd) {
             if (cmd.options.nsfw && !msg.channel.nsfw) {
@@ -53,7 +95,7 @@ class MessageEvent extends BaseEvent {
             } catch(err) {
                 msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Woops! An error has occured while executing that command.\nSend \`${err.name}: ${err.message}\` to my support server: ${bot.config.links.discord}`);
             }
-        } else return;
+        }
     }
 }
 
