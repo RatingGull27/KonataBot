@@ -1,6 +1,7 @@
 # Konata
 src/bot/config.json
 music/config.py
+website/public/images/
 
 # Node.js
 # Logs

@@ -7,12 +7,12 @@
                                                              
     Made by August#5820
     
-    Page: Main
+    Page: Error page.
 -->
 <DOCTYPE html>
     <html>
         <head>
-            <title>Konata Izumi &bull; Welcome!</title>
+            <title>Konata Izumi &bull; Error <%= code %></title>
             <link rel="stylesheet" href="https://modesta.alexflipnote.xyz/css/modesta.css" />
             <link rel="shortcut icon" href="https://cdn.discordapp.com/avatars/438521107709165568/9517b9a1918c00ca9b2f91fa64799c7e.png?size=2048" />
             <meta charset="utf-8" />
@@ -31,17 +31,9 @@
             <section class="fullscreen">
                 <div class="background" style="background-image: url('https://i.imgur.com/nZ3Wlc8.jpg');"></div>
                 <section class="me">
-                    <h1 class="title">Konata Izumi</h1>
-                    <span class="undertitle">Hello! I'm Konata Izumi, your weeb helper on Discord! I was made for Mulitpurpose with Music, Memes, Economy, Anime and with a lovely dashboard to edit my configuration for your server! You can use the button down below to navaigate throught the website!</span>
+                    <h1 class="title">Error <%= code %></h1>
+                    <span class="undertitle"><%= message %></span>
                 </section>
-                <din class="buttons">
-                    <div class="buttons">
-                        <a href="invite" class="btn animation turquoise" target="_blank">Invite me to your server!</a>
-                        <a href="discord" class="btn animation nephritis" target="_blank">Join my discord server!</a>
-                        <a href="api" class="btn animation emerald" target="_blank">API!</a>
-                        <a href="statistics" class="btn animation sliver" target="_black">Shows my statistics.</a>
-                    </div>
-                </din>
             </section>
         </body>
     </html>
