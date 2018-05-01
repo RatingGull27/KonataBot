@@ -1,5 +1,6 @@
 const Event = require('../structures/BaseEvent');
 const games = require('../../assets/games.json');
+const Website = require('../../../website/Website');
 
 class ReadyEvent extends Event {
     constructor(bot) {
@@ -32,6 +33,7 @@ class ReadyEvent extends Event {
             }],
             color: bot.utils.color
         });
+        Website(bot);
     }
 }
 

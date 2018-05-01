@@ -3,8 +3,6 @@ global.Promise = require('bluebird');
 const Util = require('../../utils/Util');
 const Eris = Util.initEris(require('eris')).Client;
 const Logger = require('sj.reggol');
-const { MeguminClient } = require('megumin.js');
-const { CFClient } = require('animu.js');
 const { DadJokeClient } = require('dadjoke.js');
 const KitsuClient = require('kitsu');
 const Gearbox = require('../modules/Gearbox');
@@ -18,8 +16,6 @@ class KonataClient extends Eris {
         this.commands = [];
         this.aliases = [];
         this.config = require('../config.json');
-        this.animu = new CFClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
-        this.megumin = new MeguminClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
         this.dadjoke = new DadJokeClient('Konata Izumi/' + require('../../../package.json').version + '/Production');
         this.log = new Logger({
             useTimestamp: true
