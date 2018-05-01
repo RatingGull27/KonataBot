@@ -23,7 +23,7 @@ If you need help with Konata (NOT INSTALLING HER); You can join our support serv
 
 ## Credits
 * dragonfire => `Util#trimArray`, `Util#shorten`, and most of the search category commands;
-* Mayo => `reddit` command;
+* Mayo => `reddit` command and most of the website core;
 * snarkyllama => `owoify`, `cringify`, and `avatar` commands;
 * Mel / Aeth => `enable` and `disable` commands.
 
