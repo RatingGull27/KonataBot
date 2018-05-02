@@ -9,7 +9,7 @@ class PatCommand extends Command {
             examples: [
                 'k;pat @computerfreaker#4054'
             ],
-            category: 'Weebs'
+            category: 'Action'
         });
     }
 

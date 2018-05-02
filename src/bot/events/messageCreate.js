@@ -13,12 +13,11 @@ class MessageEvent extends BaseEvent {
 
         if (msg.author.bot || !bot.ready) return;
 
-        const guildConfig = await this.bot.r.table('guilds').get(msg.channel.guild.id).run();
-        const userConfig = await this.bot.r.table('users').get(msg.author.id).run();
+        const gConfig = await this.bot.r.table('guilds').get(msg.channel.guild.id).run();
+        const uConfig = await this.bot.r.table('users').get(msg.author.id).run();
         
-        if (!guildConfig) await this.bot.r.table('guilds').insert({
+        if (!gConfig) await this.bot.r.table('guilds').insert({
             id: msg.channel.guild.id,
-            locale: 'en_US',
             prefix: bot.config.prefix,
             disabledCommands: [],
             farewellMessages: {
@@ -32,37 +31,38 @@ class MessageEvent extends BaseEvent {
             cases: [],
             modLog: {
                 channel: null
+            },
+            autorole: {
+                id: null
             }
         }).run();
 
-        if (!userConfig) await this.bot.r.table('users').insert({
+        if (!uConfig) await this.bot.r.table('users').insert({
             id: msg.author.id,
+            prefix: bot.config.prefix,
             economy: {
-                coins: 0,
-                streak: {
-                    time: 0,
-                    streak: 0
-                }
+                coins: 0
             },
             profiles: {
-                notes: {
-                    userID: null,
-                    note: null,
-                    username: null
-                },
+                notes: [],
                 married: {
                     user: null,
                     userID: null
-                }
+                },
+                osu: null,
+                mal: null,
+                animus: [],
+                waifu: null
             }
         }).run();
-        let gPrefix = guildConfig.prefix || bot.config.prefix;
+        let gPrefix = gConfig.prefix || bot.config.prefix;
+        let uPrefix = uConfig.prefix || bot.config.prefix;
 
         let prefix = false;
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
         const prefixes = [gPrefix, `${prefixMention}`, 'k!', '!k.', 'konata '];
-        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev '];
+        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev ', uPrefix];
         
         for (const thisPrefix of devPrefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
@@ -74,7 +74,7 @@ class MessageEvent extends BaseEvent {
         const command = args.shift();
         let cmd = this.bot.commands.find(c => c.options.name.includes(command) || c.options.aliases.includes(command));
     
-        if (!command || guildConfig.disabledCommands.includes(cmd)) return;
+        if (!command) return;
 
         if (cmd) {
             if (cmd.options.nsfw && !msg.channel.nsfw) {

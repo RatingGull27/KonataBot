@@ -36,7 +36,7 @@ class HelpCommand extends Command {
     
                 return msg.channel.createMessage({ embed: {
                     description: this.bot.utils.formatHelp(this.bot, prefix),
-                    fields: Object.keys(categories).map(c => ({ name: `» ${c}`, value: `\`${categories[c].join("`, `")}\`` })),
+                    fields: Object.keys(categories).map(c => ({ name: `» ${c}`, value: `\`${categories[c].join("`, `")}\``, inline: true })),
                     footer: {
                         text: "snarkyllama#4331 is a meme! | Use " + prefix + "help [command] to get extended help! | Commands: " + Object.keys(this.bot.commands).length
                     },
@@ -62,7 +62,7 @@ class HelpCommand extends Command {
                     },
                     {
                         name: "» Examples",
-                        value: command.options.examples ? `\`${entry.prefix}${command.options.examples.join("`, `")}\`` : "No examples found...",
+                        value: command.options.examples ? `\`${command.options.examples.join("`, `").replace('{prefix}', prefix)}\`` : "No examples found...",
                         inline: true
                     },
                     {

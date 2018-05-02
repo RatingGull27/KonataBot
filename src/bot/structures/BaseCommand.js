@@ -9,10 +9,11 @@ class BaseCommand {
         guildOnly = false,
         ownerOnly = false,
         nsfwOnly = false,
-        enabled = true
+        enabled = true,
+        cooldown = 0
     }) {
         this.bot = bot;
-        this.options = { name, desc, usage, category, aliases, examples, guildOnly, ownerOnly, nsfwOnly, enabled };
+        this.options = { name, desc, usage, category, aliases, examples, guildOnly, ownerOnly, nsfwOnly, enabled, cooldown };
     }
 
     async execute(msg, args) {}

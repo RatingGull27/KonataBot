@@ -1,3 +1,11 @@
+/**
+ * Executes something if the bot has an error while executing a DB thing.
+ * 
+ * @param {KonataClient} bot The bot client
+ * @param {Error} err Node.JS Error
+ * @param {Eris.Message} msg Eris' Message paramter.
+ * @deprecated Using `DatabaseError`. (Located at `src/errors`)
+ */
 module.exports = (bot, err, msg) => {
     if (msg) return msg.channel.createMessage('<:KonataCry:438856292178591745> **|** An error has occured while querying that into my database! The developers are on the lookout.');
     bot.webhook.createMessage({

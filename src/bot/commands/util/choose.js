@@ -5,7 +5,7 @@ class ChooseCommand extends Command {
         super(bot, {
             name: 'choose',
             desc: 'Chooses something! (Maybe your waifu!)',
-            usage: 'choose [choice1 ; choice2]',
+            usage: 'choose [choice1 | choice2]',
             aliases: [
                 'waifu-chooser'
             ],

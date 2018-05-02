@@ -29,6 +29,7 @@ class KonataClient extends Eris {
         this.messages = 0;
         this.commandsExecuted = 0;
         this.version = require('../../../package.json').version;
+        this.cooldowns = new Set();
     }
 
     async launch() {
