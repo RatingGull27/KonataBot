@@ -10,7 +10,8 @@ class CuddleCommand extends Command {
             examples: [
                 '{prefix}cuddle',
                 '{prefix}cuddle @Melmsie#0002'
-            ]
+            ],
+            cooldown: 5
         });
     }
 

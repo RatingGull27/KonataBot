@@ -6,7 +6,7 @@ class AboutCommand extends Command {
             name: 'about',
             desc: 'About me, Konata Izumi.',
             usage: 'about',
-            aliases: ['izumi-chan', 'konata'],
+            aliases: ['izumi-chan'],
             examples: ['k;izumi-chan', '!k.konata']
         });
     }

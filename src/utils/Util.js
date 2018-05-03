@@ -1,6 +1,3 @@
-const yes = ['yes', 'yus', 'yas']
-const no = ['nuuu', 'no', 'nada'];
-
 module.exports = {
     /**
      * Konata's embed colour.
@@ -27,10 +24,18 @@ module.exports = {
     initEris: (Eris) => {
         const MessageCollector = require('./collector/MessageCollector');
 
-        Object.defineProperty(Eris.TextChannel.prototype, 'awaitMessages', {
-            async value(bot, predicate, options = {}) {
-                const collector = new MessageCollector(bot);
-                return await collector.awaitMessages(predicate, options, this.id);
+        Object.defineProperty(Eris.Channel.prototype, 'awaitMessages', {
+            value: (client, filter, options) => {
+                const collector = new MessageCollector(client, filter, options);
+                return new Promise((res, rej) => {
+                    collector.once('end', (collection, reason) => {
+                        if (options.errors && options.errors.includes(reason)) {
+                          rej(collection);
+                        } else {
+                          res(collection);
+                        }
+                    });
+                });
             }
         });
 
@@ -54,29 +59,6 @@ module.exports = {
     codeblock: (lang, owo) => {
         const block = `${'```'}${lang || ''}\n${owo}\n${'```'}`;
         return block;
-    },
-    /**
-     * Verify an message in a {@see Eris.TextChannel} text channel.
-     * 
-     * @param {KonataClient} bot The bot client.
-     * @param {Eris.User} user The user.
-     * @param {Number} timer The timer to go by.
-     * @param {Eris.TextChannel} channel The text channel.
-     * @returns {void} I don't even know man.
-     */
-    verify: (bot, user, timer = 30000, channel) => {
-        const filter = (res) => {
-            res.author.id === user.id || res.content === 'cancel'
-        }
-        const uwu = channel.awaitMessages(bot, filter, {
-            timeout: timer
-        });
-
-        if (!uwu || uwu.content === 'cancel') return false;
-        const content = uwu.content.toLowerCase();
-        if (yes.includes(content)) return true;
-        if (no.includes(content)) return false;
-        return false;
     },
     /**
      * Format a duration.
@@ -225,11 +207,32 @@ module.exports = {
     removeDuplicateArray: (array) => {
         return Array.from(new Set(array).values());
     },
-    getHentaiCoins: (bot, id) => {
-        return new Promise(result => {
-            bot.r.table('economy').get(id).run(res => {
-                result(res);
-            });
-        });
+  flatten: (obj, ...props) => {
+        const isObject = d => typeof d === 'object' && d !== null;
+        if (!isObject(obj)) return obj;
+
+        props = Object.assign(...Object.keys(obj).filter(k => !k.startsWith('_')).map(k => ({ [k]: true })), ...props);
+
+        const out = {};
+
+        for (let [prop, newProp] of Object.entries(props)) {
+            if (!newProp) continue;
+            newProp = newProp === true ? prop : newProp;
+
+            const element = obj[prop];
+            const elemIsObj = isObject(element);
+            const valueOf = elemIsObj && typeof element.valueOf === 'function' ? element.valueOf() : null;
+
+            // If it's a collection, make the array of keys
+            if (element instanceof require('./Collection')) out[newProp] = Array.from(element.keys());
+            // If it's an array, flatten each element
+            else if (Array.isArray(element)) out[newProp] = element.map(e => Util.flatten(e));
+            // If it's an object with a primitive `valueOf`, use that value
+            else if (valueOf && !isObject(valueOf)) out[newProp] = valueOf;
+            // If it's a primitive
+            else if (!elemIsObj) out[newProp] = element;
+        }
+
+        return out;
     }
 };

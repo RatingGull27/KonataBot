@@ -2,6 +2,7 @@
 src/bot/config.json
 music/config.py
 website/public/images/
+website/util/nginx/
 
 # Node.js
 # Logs

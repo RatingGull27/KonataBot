@@ -39,7 +39,6 @@ class MessageEvent extends BaseEvent {
 
         if (!uConfig) await this.bot.r.table('users').insert({
             id: msg.author.id,
-            prefix: bot.config.prefix,
             economy: {
                 coins: 0
             },
@@ -56,13 +55,12 @@ class MessageEvent extends BaseEvent {
             }
         }).run();
         let gPrefix = gConfig.prefix || bot.config.prefix;
-        let uPrefix = uConfig.prefix || bot.config.prefix;
 
         let prefix = false;
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
         const prefixes = [gPrefix, `${prefixMention}`, 'k!', '!k.', 'konata '];
-        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev ', uPrefix];
+        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev '];
         
         for (const thisPrefix of devPrefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
@@ -75,6 +73,14 @@ class MessageEvent extends BaseEvent {
         let cmd = this.bot.commands.find(c => c.options.name.includes(command) || c.options.aliases.includes(command));
     
         if (!command) return;
+
+        if (this.bot.cooldowns.has(msg.author.id)) return msg.channel.createMessage(`You must wait \`${cmd.options.cooldown}\` seconds!`);
+
+        this.bot.cooldowns.add(msg.author.id);
+
+        setInterval(() => {
+            this.bot.cooldowns.delete(msg.author.id);
+        }, cmd.options.cooldown * 1000);
 
         if (cmd) {
             if (cmd.options.nsfw && !msg.channel.nsfw) {
@@ -93,7 +99,7 @@ class MessageEvent extends BaseEvent {
                 bot.commandsExecuted++;
                 cmd.execute(msg, args);
             } catch(err) {
-                msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Woops! An error has occured while executing that command.\nSend \`${err.name}: ${err.message}\` to my support server: ${bot.config.links.discord}`);
+                msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
             }
         }
     }
