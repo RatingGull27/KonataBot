@@ -19,7 +19,7 @@ class RedPandaCommand extends Command {
     async execute(msg, args) {
         const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a red panda..');
 
-        const { body } = await this.bot.snek.get('https://animal.anidiots.guide/red_panda');
+        const { body } = await this.bot.snek.get('https://animals.anidiots.guide/red_panda');
         await ctx.delete();
         msg.channel.createMessage({
             content: ':white_check_mark: **|** Here is your red panda!',
