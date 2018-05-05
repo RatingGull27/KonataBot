@@ -8,7 +8,7 @@ class ConnectedEvent extends Event {
     }
 
     execute(id) {
-        this.bot.log.custom(`SHARD ${id}`, 'Connected!');
+        this.bot.log.custom(`Shard ${id}`, 'Connected!');
     }
 }
 
