@@ -19,7 +19,7 @@ class PenguinCommand extends Command {
     async execute(msg, args) {
         const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a penguin..');
 
-        const { body } = await this.bot.snek.get('https://animal.anidiots.guide/penguin');
+        const { body } = await this.bot.snek.get('https://animals.anidiots.guide/penguin');
         await ctx.delete();
         msg.channel.createMessage({
             content: ':white_check_mark: **|** Here is your penguin!',
