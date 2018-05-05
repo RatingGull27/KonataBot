@@ -1,15 +1,16 @@
 global.Promise = require('bluebird');
 
 const Util = require('../../utils/Util');
-const Eris = Util.initEris(require('eris')).Client;
+const Eris = Util.initEris(require('eris'));
 const Logger = require('sj.reggol');
 const { DadJokeClient } = require('dadjoke.js');
 const KitsuClient = require('kitsu');
 const Gearbox = require('../modules/Gearbox');
 const fs = require('fs');
 const WebhookClient = require('../../utils/webhook/WebhookClient');
+const MessageCollector = require('../../utils/collector/MessageCollector');
 
-class KonataClient extends Eris {
+class KonataClient extends Eris.Client {
     constructor(token, options = {}) {
         super(token, options);
 
@@ -29,12 +30,22 @@ class KonataClient extends Eris {
         this.messages = 0;
         this.commandsExecuted = 0;
         this.version = require('../../../package.json').version;
+        this.msgCollector = new MessageCollector(this);
         this.cooldowns = new Set();
+        this.init();
     }
 
     async launch() {
         await this.load();
         this.connect().then(() => this.log.custom('WebSocket', 'Konata Izumi is being connected via Discord..'));
+    }
+
+    init() {
+        Object.defineProperty(Eris.TextChannel.prototype, 'awaitMessages', {
+            async value(predicate, options = {}) {
+                return await this.msgCollector.awaitMessages(predicate, options, this.id);
+            }
+        });
     }
 
     async load() {

@@ -13,8 +13,7 @@ class AkinatorCommand extends Command {
             examples: [
                 '{prefix}akinator yes'
             ],
-			category: 'Minigames',
-			enabled: false
+			category: 'Minigames'
         });
 
 		this.games = new Map();
@@ -23,7 +22,7 @@ class AkinatorCommand extends Command {
     async execute(msg, args) {
 		const { color } = this.bot.utils;
 		const uConfig = await this.bot.r.table('users').get(msg.author.id).run();
-        if (this.games.has(msg.channel.id)) return msContentScript.channel.createMessage(':x: **|** Only one game per channel.');
+        if (this.games.has(msg.channel.id)) return msg.channel.createMessage(':x: **|** Only one game per channel.');
 
         try {
             let ans = null;
@@ -41,18 +40,18 @@ class AkinatorCommand extends Command {
                     }
                 });
                 const filter = res => res.author.id === msg.author.id && answers.includes(res.content.toLowerCase());
-                const messages = await msg.channel.awaitMessages(this.bot, filter, {
-                    max: 1,
-                    time: 30000
+                const messages = await msg.channel.awaitMessages(filter, {
+                    timeout: 30000
                 });
-                if (!messages.size) {
+                if (!messages) {
                     await msg.channel.createMessage(':x: **|** Times up!');
                     break;
                 }
-                if (messages.first().content.toLowerCase() === 'end') break;
-                ans = answers.indexOf(messages.first().content.toLowerCase());
+                if (messages.content.toLowerCase() === 'end') break;
+                ans = answers.indexOf(messages.content.toLowerCase());
 			}
 			const guess = await this.finish(msg.channel);
+			if (!guess) return msg.channel.createMessage(`:thinking: **|** Something has errored, try again later.`);
 			msg.channel.createMessage({
 				content: `:thinking: **|** I'm ${Math.round(guess.proba * 100)}% sure it is:`,
 				embed: {
@@ -91,9 +90,10 @@ class AkinatorCommand extends Command {
 	}
 	
 	async createSession(channel) {
-		const { body } = await this.bot.snek.get('http://api-en1.akinator.com/ws/new_session').query({
+		const { body } = await this.bot.snek.get('http://api-usa3.akinator.com/ws/new_session').query({
 			partner: 1,
-			player: 'konata'
+			player: 'konata',
+			constraint: 'ETAT<>\'AV\''
 		});
 		const data = body.parameters;
 		if (!data) return null;
@@ -109,7 +109,7 @@ class AkinatorCommand extends Command {
 	async progress(channel, answer) {
 		const session = await this.games.get(channel.id);
 		const { body } = await this.bot.snek
-			.get('http://api-en1.akinator.com/ws/answer')
+			.get('http://api-usa3.akinator.com/ws/answer')
 			.query({
 				session: session.id,
 				signature: session.signature,
@@ -130,7 +130,7 @@ class AkinatorCommand extends Command {
 	async finish(channel) {
 		const session = this.games.get(channel.id);
 		const { body } = await this.bot.snek
-			.get('http://api-en1.akinator.com/ws/list')
+			.get('http://api-usa3.akinator.com/ws/list')
 			.query({
 				session: session.id,
 				signature: session.signature,
@@ -138,6 +138,7 @@ class AkinatorCommand extends Command {
 				size: 1,
 				mode_question: 0
 			});
+		if (!body.parameters) return null;
 		return body.parameters.elements[0].element;
 	}
 
@@ -146,11 +147,10 @@ class AkinatorCommand extends Command {
 			const value = res.content.toLowerCase();
 			return res.author.id === author.id && (['yes', 'yus', 'y'].includes(value) || ['nu', 'no', 'nada', 'n'].includes(value));
 		}
-		const verify = await channel.awaitMessages(this.bot, filter, {
-			max: 1,
-			time
+		const verify = await channel.awaitMessages(filter, {
+			timeout: time
 		});
-		if (!verify.size) return 0;
+		if (!verify || selected.content === 'c') return false;
 		const choice = verify.first().content.toLowerCase();
 		if (['no', 'nu', 'nada', 'n'].includes(choice)) return true;
 		if (['yes', 'yus', 'y'].includes(choice)) return false;

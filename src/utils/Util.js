@@ -22,23 +22,6 @@ module.exports = {
      * @returns {Eris|void} The thing adding `TextChannel#awaitMessages` and `Channel#dm` functions.
      */
     initEris: (Eris) => {
-        const MessageCollector = require('./collector/MessageCollector');
-
-        Object.defineProperty(Eris.Channel.prototype, 'awaitMessages', {
-            value: (client, filter, options) => {
-                const collector = new MessageCollector(client, filter, options);
-                return new Promise((res, rej) => {
-                    collector.once('end', (collection, reason) => {
-                        if (options.errors && options.errors.includes(reason)) {
-                          rej(collection);
-                        } else {
-                          res(collection);
-                        }
-                    });
-                });
-            }
-        });
-
         Object.defineProperties(Eris.Channel.prototype, {
             'dm': {
                 get() {

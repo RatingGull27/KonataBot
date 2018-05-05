@@ -1,4 +1,4 @@
-exports.handle = (bot, role, guild) => {
+module.exports = (bot, role, guild) => {
 	return new Promise((resolve, reject) => {
 		if (/^\d+$/.test(role)) {
 			const role = guild.roles.get(role);

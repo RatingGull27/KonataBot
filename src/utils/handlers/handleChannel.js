@@ -1,4 +1,4 @@
-exports.handle = (bot, channel, guild) => {
+module.exports = (bot, channel, guild) => {
     return new Promise((resolve, reject) => {
 		if (/^\d+$/.test(channel)) {
 			if (guild) {

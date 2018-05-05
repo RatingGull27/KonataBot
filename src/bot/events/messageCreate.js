@@ -21,10 +21,12 @@ class MessageEvent extends BaseEvent {
             prefix: bot.config.prefix,
             disabledCommands: [],
             farewellMessages: {
+                enabled: false,
                 message: null,
                 channel: null
             },
             greetingMessage: {
+                enabled: false,
                 message: null,
                 channel: null
             },

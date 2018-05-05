@@ -35,4 +35,4 @@ class RedPandaCommand extends Command {
     }
 }
 
-module.exports = red-pandaCommand;
+module.exports = RedPandaCommand;
