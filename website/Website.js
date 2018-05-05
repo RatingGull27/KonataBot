@@ -33,11 +33,11 @@ module.exports = (bot) => { // The website will start when the bot is ready.
         });
     });
 
-    app.get('/api/konata', async(req, res) => {
+    app.get('/api/konata', (req, res) => {
         randomFile('../../website/public/images', (err, file) => {
             if(err) { 
                 res.status(500).json({ code: 500, message: 'Internal Server Error..' }); 
-                console.log(`500 Internal Server Error:\n${err.stack}`);
+                bot.log.error(`500 Internal Server Error:\n${err.stack}`);
             }
             res.status(200).json({ url: `http://localhost:81/images/${file}` });
         });
