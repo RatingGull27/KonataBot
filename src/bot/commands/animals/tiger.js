@@ -16,7 +16,7 @@ class TigerCommand extends Command {
     async execute(msg, args) {
         const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a tiger..');
 
-        const { body } = await this.bot.snek.get('https://animal.anidiots.guide/tiger');
+        const { body } = await this.bot.snek.get('https://animals.anidiots.guide/tiger');
         await ctx.delete();
         msg.channel.createMessage({
             content: ':white_check_mark: **|** Here is your tiger!',
