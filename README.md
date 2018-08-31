@@ -1,4 +1,4 @@
-# Konata Izumi [![Discord](https://discordapp.com/api/guilds/382725233695522816/embed.png)](https://discord.gg/RDKNApX)
+# Konata Izumi this do not work the invite is not work ===>[![Discord](https://discordapp.com/api/guilds/382725233695522816/embed.png)](https://discord.gg/RDKNApX)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 > You may invite Konata [here](https://discordapp.com/oauth2/authorize?client_id=438521107709165568&scope=bot&permissions=0) into your discord server.
 
@@ -19,7 +19,7 @@ We will not show you how to install Konata but we can give out what she needs an
 ## Support
 If you need help with Konata (NOT INSTALLING HER); You can join our support server.
 
-[![Konata's Hangout](https://discordapp.com/api/guilds/382725233695522816/embed.png?style=banner3)](https://discord.gg/RDKNApX)
+this do not work the invite is not work ===>[![Konata's Hangout](https://discordapp.com/api/guilds/382725233695522816/embed.png?style=banner3)](https://discord.gg/RDKNApX)
 
 ## Credits
 * dragonfire => `Util#trimArray`, `Util#shorten`, and most of the search category commands;
