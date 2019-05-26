@@ -1,5 +1,5 @@
 # Konata Izumi 
-this do not work the invite is not work ===>[![Discord](https://discordapp.com/api/guilds/399740806027542538/embed.png)](https://discord.gg/mYZjCbP)
+[![Discord](https://discordapp.com/api/guilds/399740806027542538/embed.png)](https://discord.gg/mYZjCbP)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 > You may invite Konata [here](https://discordapp.com/oauth2/authorize?&client_id=390695585105313812&scope=bot&permissions=0) into your discord server.
 
