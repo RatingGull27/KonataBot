@@ -16,7 +16,7 @@ class LionCommand extends Command {
     async execute(msg, args) {
         const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a lion..');
 
-        const { body } = await this.bot.snek.get('https://animal.anidiots.guide/lion');
+        const { body } = await this.bot.snek.get('https://animals.anidiots.guide/lion');
         await ctx.delete();
         msg.channel.createMessage({
             content: ':white_check_mark: **|** Here is your lion!',
