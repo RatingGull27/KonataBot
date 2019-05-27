@@ -19,7 +19,7 @@ class HugCommand extends Command {
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
-            content: `<:KonataDreaming:438856787513573377> **|** ${msg.author.mention}: Since your didn't want to hug with someone; You're hugging with me!`,
+            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to hug with someone; You're hugging with me!`,
             embed: {
                 image: {
                     url: neko.body.url
@@ -28,7 +28,7 @@ class HugCommand extends Command {
             }});
         } else {
                 msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:438856787513573377> **|** ${msg.author.mention} is hugging <@${msg.mentions[0].id}>`,
+                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is hugging <@${msg.mentions[0].id}>`,
                     embed: {
                         image: {
                             url: neko.body.url

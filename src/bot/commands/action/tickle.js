@@ -19,7 +19,7 @@ class TickleCommand extends Command {
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
-            content: `<:KonataDreaming:438856787513573377> **|** ${msg.author.mention}: Since your didn't want to tickle with someone; You're tickling me!`,
+            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to tickle with someone; You're tickling me!`,
             embed: {
                 image: {
                     url: neko.body.url
@@ -28,7 +28,7 @@ class TickleCommand extends Command {
             }});
         } else {
                 msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:438856787513573377> **|** ${msg.author.mention} is tickling <@${msg.mentions[0].id}>`,
+                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is tickling <@${msg.mentions[0].id}>`,
                     embed: {
                         image: {
                             url: neko.body.url

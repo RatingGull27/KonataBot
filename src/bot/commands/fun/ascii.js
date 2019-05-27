@@ -14,10 +14,10 @@ class AsciiCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** I can't do ascii art without words!`);
+        if (!args[0]) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** I can't do ascii art without words!`);
         
         await figlet(args.join(" "), (err, data) => {
-            if (err) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** An error has occured! \`${err.message}\`. Try again later.`);
+            if (err) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** An error has occured! \`${err.message}\`. Try again later.`);
             msg.channel.createMessage(this.bot.utils.codeblock(null, data));
         });
     }

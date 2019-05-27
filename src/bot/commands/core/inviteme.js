@@ -17,11 +17,11 @@ class InviteMeCommand extends Command {
             description: "Oh, you're gonna invite me?! >w<",
             fields: [{
                 'name': '» Bot',
-                'value': 'https://discordapp.com/oauth2/authorize?client_id=438521107709165568&scope=bot&permissions=0'
+                'value': 'https://discordapp.com/oauth2/authorize?&client_id=390695585105313812&scope=bot&permissions=0'
             },
             {
                 name: '» Discord',
-                value: 'https://discord.gg/RDKNApX'
+                value: 'https://discord.gg/mYZjCbP'
             }],
             color: this.bot.utils.color
         }});

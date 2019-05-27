@@ -21,16 +21,16 @@ class SettingsCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (args.length < 1) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Please provide \`set\` \`reset\` or \`list\`.`);
+        if (args.length < 1) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** Please provide \`set\` \`reset\` or \`list\`.`);
         this.bot.r.table('guilds').get(msg.channel.guild.id).run((error, settings) => {
             if (error) new DatabaseException(this.bot, error);
             if (!msg.member.permission.has('manageGuild') && !this.bot.config.devs.includes(msg.author.id)) {
-                msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** You must have the \`manageGuild\` permission to execute this command!`);
+                msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** You must have the \`manageGuild\` permission to execute this command!`);
                 return;
             }
             if (args[0].toLowerCase() === 'set') {
-                if (args.length < 2) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** You must provide a setting name to modify it.`);
-                if (args.length < 3) return msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** You must provide a value to modify it.`);
+                if (args.length < 2) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** You must provide a setting name to modify it.`);
+                if (args.length < 3) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** You must provide a value to modify it.`);
                 if (args[1].toLowerCase() === 'guild.welcomeMessages.enabled') {
                     let enabled;
                     if (args[2].toLowerCase() === 'true' || args[2].toLowerCase() === 'yes') {

@@ -17,7 +17,7 @@ class MeguminCommand extends Command {
     }
 
     async execute(msg, args) {
-        const m = await msg.channel.createMessage('<:OwOThink:439675032910954496> **|** Fetching quote and image.');
+        const m = await msg.channel.createMessage('<:owoThink:582320118173007883> **|** Fetching quote and image.');
 
         const { body } = await this.bot.snek.get('https://megumin.torque.ink/api/explosion')
             .set('User-Agent', 'Konata Izumi/' + require('../../../../package.json').version + '/Production');

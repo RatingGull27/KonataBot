@@ -12,7 +12,7 @@ class ShardInfoCommand extends Command {
     }
 
     async execute(msg, args) {
-        const ctx = await msg.channel.createMessage(`<:KonataOk:438856307580338176> **|** Grabbing shard information...`);
+        const ctx = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Grabbing shard information...`);
 
         let shards = '';
         this.bot.shards.map(_ => {

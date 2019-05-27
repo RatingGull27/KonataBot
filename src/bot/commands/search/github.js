@@ -13,8 +13,8 @@ class GithubCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage(`<:KonataYawn:438856268338298881> **|** Invalid usage, do \`${this.bot.config.prefix}help github\`.`);
-        const m = await msg.channel.createMessage(`<:KonataOk:438856307580338176> **|** Fetching \`${args[0]}/${args[1]}\`.`);
+        if (!args[0]) return msg.channel.createMessage(`<:KonataYawn:582320117568897083> **|** Invalid usage, do \`${this.bot.config.prefix}help github\`.`);
+        const m = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Fetching \`${args[0]}/${args[1]}\`.`);
 
         const repo = await this.bot.snek.get(`https://api.github.com/repos/${args[0]}/${args[1]}`); // Gets the repository
         const commits = await this.bot.snek.get(`https://api.github.com/repos/${args[0]}/${args[1]}/commits`); // Gets the lastest commits.

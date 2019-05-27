@@ -1,6 +1,6 @@
 {
     "apps": [{
         "name": "KonataBot",
-        "script": "./src/Konata.js"
+        "script": "./src/bot/Konata.js"
     }]
 }

@@ -1,7 +1,7 @@
 class WebhookService {
     constructor(id, token) {
-        this.id = id;
-        this.token = token;
+        this.id = "";
+        this.token = "";
         this.snek = require('snekfetch');
     }
 

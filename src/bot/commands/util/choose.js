@@ -18,11 +18,11 @@ class ChooseCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage('<:OwOThink:439675032910954496> **|** You might wanna choose 2 arguments before doing that!');
-        if (!args.join(" ").includes(" | ")) return msg.channel.createMessage('<:OwOThink:439675032910954496> **|** Usage: `' + this.options.usage +'`.');
+        if (!args[0]) return msg.channel.createMessage('<:owoThink:582320118173007883> **|** You might wanna choose 2 arguments before doing that!');
+        if (!args.join(" ").includes(" | ")) return msg.channel.createMessage('<:owoThink:582320118173007883> **|** Usage: `' + this.options.usage +'`.');
 
         const text = args.join(" ").split(" | ").filter(x => x && x != " ");
-        msg.channel.createMessage(`<:OwOThink:439675032910954496> **|** I choose \`${text[Math.floor(Math.random() * (text.length))].trim()}\`!`);
+        msg.channel.createMessage(`<:owoThink:582320118173007883> **|** I choose \`${text[Math.floor(Math.random() * (text.length))].trim()}\`!`);
     }
 }
 

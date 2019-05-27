@@ -9,60 +9,18 @@ class MessageEvent extends BaseEvent {
 
     async execute(msg) {
         const { bot } = this;
+
         bot.messages++;
 
         if (msg.author.bot || !bot.ready) return;
 
-        const gConfig = await this.bot.r.table('guilds').get(msg.channel.guild.id).run();
-        const uConfig = await this.bot.r.table('users').get(msg.author.id).run();
-        
-        if (!gConfig) await this.bot.r.table('guilds').insert({
-            id: msg.channel.guild.id,
-            prefix: bot.config.prefix,
-            disabledCommands: [],
-            farewellMessages: {
-                enabled: false,
-                message: null,
-                channel: null
-            },
-            greetingMessage: {
-                enabled: false,
-                message: null,
-                channel: null
-            },
-            cases: [],
-            modLog: {
-                channel: null
-            },
-            autorole: {
-                id: null
-            }
-        }).run();
-
-        if (!uConfig) await this.bot.r.table('users').insert({
-            id: msg.author.id,
-            economy: {
-                coins: 0
-            },
-            profiles: {
-                notes: [],
-                married: {
-                    user: null,
-                    userID: null
-                },
-                osu: null,
-                mal: null,
-                animus: [],
-                waifu: null
-            }
-        }).run();
-        let gPrefix = gConfig.prefix || bot.config.prefix;
-
         let prefix = false;
+
         const mentionPrefix = new RegExp(`^<@!?${this.bot.user.id}> `);
         const prefixMention = mentionPrefix.exec(msg.content);
-        const prefixes = [gPrefix, `${prefixMention}`, 'k!', '!k.', 'konata '];
-        const devPrefixes = [gPrefix, `${prefixMention}`, 'dev '];
+
+        const prefixes = ['konata!', `${prefixMention}`, 'k;', 'k!', '!k.', 'konata ']; // @mention, konata!, k;, k!, !k., and konata  => Prefixes
+        const devPrefixes = [bot.config.prefix, `${prefixMention}`, 'dev!', 'dev '];
         
         for (const thisPrefix of devPrefixes) {
             if (msg.content.startsWith(thisPrefix)) prefix = thisPrefix;
@@ -85,26 +43,27 @@ class MessageEvent extends BaseEvent {
         }, cmd.options.cooldown * 1000);
 
         if (cmd) {
-            if (cmd.options.nsfw && !msg.channel.nsfw) {
-                return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
+            if (cmd.options.nsfwOnly && !msg.channel.nsfw) {
+                return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
             }
 
             if (cmd.options.guildOnly && msg.channel.dm) {
-                return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** Y-you might wanna be in a guild to execute this command.`);
+                return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** Y-you might wanna be in a guild to execute this command.`);
             }
 
-            if (cmd.options.ownerOnly && !bot.config.devs.includes(msg.author.id)) {
-                return msg.channel.createMessage(`<:KonataDreaming:438856787513573377> **|** You don't have permission to execute this! >~<`);
+            if (cmd.options.ownerOnly && !msg.author.id) {
+               return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** You don't have permission to execute this! >~<`);
             }
 
             try {
                 bot.commandsExecuted++;
                 cmd.execute(msg, args);
             } catch(err) {
-                msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
+                msg.channel.createMessage(`<:KonataCry:582307914308386820> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
             }
         }
     }
 }
+
 
 module.exports = MessageEvent;
