@@ -23,7 +23,6 @@ class KonataClient extends Eris.Client {
         });
         this.gearbox = new Gearbox(this);
         this.kitsu = new KitsuClient();
-        this.webhook = new WebhookClient(this.config.webhook_dev.id, this.config.webhook_dev.token);
         this.r = require('../database/Database');
         this.utils = require('../../utils/Util');
         this.snek = require('snekfetch');
@@ -49,10 +48,10 @@ class KonataClient extends Eris.Client {
     }
 
     async load() {
-        const categories= await fs.readdirSync('./commands');
+        const categories= await fs.readdirSync('./src/bot/commands');
 
         for (let i = 0; i < categories.length; i++) {
-            fs.readdir(`./commands/${categories[i]}`, (err, files) => {
+            fs.readdir(`./src/bot/commands/${categories[i]}`, (err, files) => {
                 if (err) this.log.error(`\n${err.stack}`);
                 this.log.info(`Loading "${files.length}" commands from category "${categories[i]}"`);
                 files.forEach(f => {
@@ -72,7 +71,7 @@ class KonataClient extends Eris.Client {
             });
         }
 
-        fs.readdir('./events', (err, files) => {
+        fs.readdir('./src/bot/events', (err, files) => {
             if (err) this.log.error(`${err.stack}`);
             this.log.info(`Loading "${files.length}" events...`);
             files.forEach(f => {
