@@ -1,7 +1,7 @@
 {
     "name": "konatabot",
     "description": "Konata is a multipurpose discord bot that you can use for Moderation, Music, Memes, with a lovely dashboard.",
-    "version": "0.1.0",
+    "version": "0.1.5",
     "dependencies": {
         "bluebird": "3.5.1",
         "cheerio": "1.0.0-rc.2",
@@ -20,12 +20,13 @@
         "ejs": "2.5.9"
     },
     "author": "August (Chris)",
+    "arother author": "RatingGull27",
     "bugs": {
-        "url": "https://github.com/KonataBot/KonataBot/issues"
+        "url": "https://github.com/RatingGull27/KonataBot/issues"
     },
-    "homepage": "https://github.com/KonataBot/KonataBot#readme",
+    "homepage": "https://github.com/RatingGull27/KonataBot#readme",
     "repository": {
         "type": "git",
-        "url": "https://github.com/KonataBot/KonataBot"
+        "url": "https://github.com/RatingGull27/KonataBot"
     }
 }
