@@ -82,10 +82,10 @@ class AkinatorCommand extends Command {
 				}).run();
 				msg.channel.createMessage(":clap: **|** You have defeated me and won `" + winnings + "` hentai coins!");
 			}
-			msg.channel.createMessage('<:KonataOwO:438519335556874240> **|** Guessed right one more time! I love playing with you! Have some cake. :cake:');
+			msg.channel.createMessage('<:KonataOwO:582320118680518676> **|** Guessed right one more time! I love playing with you! Have some cake. :cake:');
         } catch(err) {
 			this.games.delete(msg.channel.id);
-			msg.channel.createMessage(`<:KonataCry:438856292178591745> **|** An error has occured! \`\`\`js\n${err.stack}\`\`\`. Try again later~`);
+			msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** An error has occured! \`\`\`js\n${err.stack}\`\`\`. Try again later~`);
         }
 	}
 	
