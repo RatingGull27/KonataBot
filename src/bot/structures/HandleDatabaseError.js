@@ -7,8 +7,8 @@
  * @deprecated Using `DatabaseError`. (Located at `src/errors`)
  */
 module.exports = (bot, err, msg) => {
-    if (msg) return msg.channel.createMessage('<:KonataCry:438856292178591745> **|** An error has occured while querying that into my database! The developers are on the lookout.');
-    bot.webhook.createMessage({
+    if (msg) return msg.channel.createMessage('<:KonataCry:582307198957387795> **|** An error has occured while querying that into my database! The developers are on the lookout.');
+    bot.createMessage({
         title: "Konata Izumi » Database Error",
         description: `<@${bot.config.devs[0]}>: An error has occured:`,
         fields: [{
