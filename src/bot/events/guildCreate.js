@@ -10,7 +10,7 @@ class GuildJoinedEvent extends Event {
     async execute(guild) {
         await this.bot.db.createGuild(guild.id);
         this.bot.log.info(`Konata Izumi joined ${guild.name} (${guild.id})!`);
-        this.bot.webhook.createMessage({
+        this.bot.createMessage({
             title: "Konata Izumi ;; Joined Guild",
             description: "Ok, I joined a guild! Is it that suprising?",
             fields: [{
