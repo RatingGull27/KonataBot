@@ -12,7 +12,7 @@ module.exports = {
      * @returns {String} The string.
      */
     formatHelp: (bot, prefix) => {
-        const str = `__**Konata's Commands**__\n\t<:KonataHi:438518453083701249> Hello! I'm Konata, your helper.\n\t<:KonataOwO:438519335556874240> To get extended help, do \`${prefix}help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:438856307580338176> To execute a command, do \`${prefix}<command>\` or \`@Konata#2684 <command>\``;
+        const str = `__**Konata's Commands**__\n\t<:KonataHi:582320118592176138> Hello! I'm Konata, your helper.\n\t<:KonataOwO:582320118680518676> To get extended help, do \`${prefix}help [command]\` or \`@Konata#2684 help [command]\`\n\t<:KonataOk:582321624196448272> To execute a command, do \`${prefix}<command>\` or \`@Konata#2684 <command>\``;
         return str;
     },
     /**
