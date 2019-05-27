@@ -39,7 +39,7 @@ module.exports = (bot) => { // The website will start when the bot is ready.
                 res.status(500).json({ code: 500, message: 'Internal Server Error..' }); 
                 bot.log.error(`500 Internal Server Error:\n${err.stack}`);
             }
-            res.status(200).json({ url: `http://localhost:81/images/${file}` });
+            res.status(200).json({ url: `http://localhost:8100/images/${file}` });
         });
     });
 
@@ -54,11 +54,11 @@ module.exports = (bot) => { // The website will start when the bot is ready.
     });
 
     app.get('/invite', (req, res) => {
-        res.redirect('https://discordapp.com/oauth2/authorize?client_id=438521107709165568&scope=bot&permissions=0');
+        res.redirect('https://discordapp.com/oauth2/authorize?&client_id=390695585105313812&scope=bot&permissions=0');
     });
 
     app.get('/discord', (req, res) => {
-        res.redirect('https://discord.gg/RDKNApX');
+        res.redirect('https://discord.gg/mYZjCbP');
     });
 
     app.use((req, res) => {
@@ -69,5 +69,5 @@ module.exports = (bot) => { // The website will start when the bot is ready.
         res.redirect('/');
     });
 
-    app.listen('81', () => bot.log.custom('Website', `localhost:81 => Listening..`));
+    app.listen('8100', () => bot.log.custom('Website', `localhost:8100 => Listening..`));
 }
