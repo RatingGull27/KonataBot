@@ -1,4 +1,5 @@
 # Konata Izumi 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1ea0d1c93e6a419f92dd09fcd1daf6e0)](https://app.codacy.com/app/RatingGull27/KonataBot?utm_source=github.com&utm_medium=referral&utm_content=RatingGull27/KonataBot&utm_campaign=Badge_Grade_Dashboard)
 [![Discord](https://discordapp.com/api/guilds/399740806027542538/embed.png)](https://discord.gg/mYZjCbP)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 > You may invite Konata [here](https://discordapp.com/oauth2/authorize?&client_id=390695585105313812&scope=bot&permissions=0) into your discord server.
