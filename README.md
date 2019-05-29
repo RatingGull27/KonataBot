@@ -9,7 +9,6 @@ We will not show you how to install Konata but we can give out what she needs an
 
 ### API Keys
 * weeb.sh => Some `action` commands,
-* osu! => osu! command,
 
 ### Libraries
 * Node.js => Runtime enviornment,
