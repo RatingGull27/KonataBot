@@ -22,3 +22,4 @@ class nsfwCommand extends Command {
 }
 
 module.exports = nsfwCommand;
+//This was from nsfw for it link: https://github.com/wolkix3/Nekos.life-Downloader
