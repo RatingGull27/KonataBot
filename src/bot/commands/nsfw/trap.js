@@ -19,13 +19,22 @@ class trapCommand extends Command {
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
-            content: `${msg.author.mention}, here is your trap:`,
+            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to trap with someone; You're trap me!`,
             embed: {
                 image: {
                     url: neko.body.url
                 },
                 color: this.bot.utils.color
             }});
+        } else {
+                msg.channel.createMessage({ 
+                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is traping <@${msg.mentions[0].id}>`,
+                    embed: {
+                        image: {
+                            url: neko.body.url
+                        },
+                        color: this.bot.utils.color
+                }});
         }
     }
 }
