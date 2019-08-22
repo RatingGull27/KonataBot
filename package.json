@@ -2,6 +2,11 @@
     "name": "konatabot",
     "description": "Konata is a multipurpose discord bot that you can use for Moderation, Music, Memes, with a lovely dashboard.",
     "version": "0.1.5",
+    "main": "Konata.js",
+    "scripts": {
+       "start": "node ./src/bot/Konata.js"
+  },
+
     "dependencies": {
         "bluebird": "3.5.1",
         "cheerio": "1.0.0-rc.2",
