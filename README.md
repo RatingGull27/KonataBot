@@ -1,10 +1,10 @@
 # Konata Izumi 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1ea0d1c93e6a419f92dd09fcd1daf6e0)](https://app.codacy.com/app/RatingGull27/KonataBot?utm_source=github.com&utm_medium=referral&utm_content=RatingGull27/KonataBot&utm_campaign=Badge_Grade_Dashboard)
-[![Discord](https://discordapp.com/api/guilds/399740806027542538/embed.png)](https://discord.gg/mYZjCbP)
+[![Discord](https://discordapp.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/buunN3V)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 
 ## Installation
-We will not show you how to install Konata [ Coon soon ]
+We will not show you how to install Konata ( Coon soon )
 
 ### Libraries
 * Node.js => Runtime enviornment,
@@ -12,7 +12,7 @@ We will not show you how to install Konata [ Coon soon ]
 
 ## Support
 If you need help with Konata. You can join our support server.
-[![Konata's Hangout](https://discordapp.com/api/guilds/399740806027542538/embed.png?style=banner3)](https://discord.gg/mYZjCbP)
+[![Konata's Hangout](https://discordapp.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/buunN3V)
 
 ## Credits
 * dragonfire => `Util#trimArray`, `Util#shorten`, and most of the search category commands;
