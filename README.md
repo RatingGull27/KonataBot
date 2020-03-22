@@ -4,10 +4,7 @@
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 
 ## Installation
-We will not show you how to install Konata but we can give out what she needs and what api keys you need:
-
-### API Keys
-* weeb.sh => Some `action` commands,
+We will not show you how to install Konata [ Coon soon ]
 
 ### Libraries
 * Node.js => Runtime enviornment,
