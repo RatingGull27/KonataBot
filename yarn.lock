@@ -118,11 +118,11 @@ css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
-dadjoke.js@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/dadjoke.js/-/dadjoke.js-0.0.2.tgz#56a11e85ad72d11305986fd9287652f730a1d435"
+dadjoke.js@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/dadjoke.js/-/dadjoke.js-0.1.0.tgz#8f44d213edcc2b29fa29cf018158d4fc06d660e8"
   dependencies:
-    snekfetch "3.6.4"
+    snekfetch "4.0.4"
 
 debug@2.6.9:
   version "2.6.9"
@@ -547,13 +547,13 @@ sj.reggol@1.1.3:
   dependencies:
     ansicolors "0.3.2"
 
-snekfetch@3.6.4:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-3.6.4.tgz#d13e80a616d892f3d38daae4289f4d258a645120"
-
 snekfetch@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-4.0.0.tgz#949b066de47a5bd70d39d7b0a3a7fcd9ee1156a1"
+
+snekfetch@4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/snekfetch/-/snekfetch-4.0.4.tgz#e76a03b8476699a1f0c036d6567e386ce5fbde8e"
 
 "statuses@>= 1.3.1 < 2", "statuses@>= 1.4.0 < 2":
   version "1.5.0"

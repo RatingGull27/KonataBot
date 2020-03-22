@@ -10,7 +10,7 @@
     "dependencies": {
         "bluebird": "3.7.2",
         "cheerio": "1.0.0-rc.3",
-        "dadjoke.js": "0.0.2",
+        "dadjoke.js": "0.1.0",
         "eris": "0.8.5",
         "eris-lavalink": "1.0.2",
         "express": "4.16.3",
