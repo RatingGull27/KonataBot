@@ -12,6 +12,7 @@ We will not show you how to install Konata ( Coon soon )
 
 ## Support
 If you need help with Konata. You can join our support server.
+
 [![Konata's Hangout](https://discordapp.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/buunN3V)
 
 ## Credits
@@ -33,3 +34,6 @@ If you need help with Konata. You can join our support server.
 * v0.1.5
    * `nsfw` category;
    * fix up some of issues with the bot.
+* v0.1.7:
+    * Update the Readme
+    * Update arother thing
