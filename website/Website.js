@@ -58,7 +58,7 @@ module.exports = (bot) => { // The website will start when the bot is ready.
     });
 
     app.get('/discord', (req, res) => {
-        res.redirect('https://discord.gg/mYZjCbP');
+        res.redirect('https://discord.gg/buunN3V');
     });
 
     app.use((req, res) => {
