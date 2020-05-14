@@ -37,3 +37,8 @@ If you need help with Konata. You can join our support server.
 * v0.1.7:
     * Update the Readme
     * Update arother thing
+ * v0.1.8:
+    * Update package.json
+ * v0.2.0:
+    * Fix the package.json
+
