@@ -7,6 +7,7 @@ class HelpCommand extends Command {
             desc: 'Gives the user a full list of commands or gives extended help.',
             usage: 'help [command | alias]',
             aliases: ['commands', 'command', 'cmds', 'halp', 'h', '?'],
+            ownerOnly: true,
             examples: ['konata help help', 'k;help']
         });
     }
