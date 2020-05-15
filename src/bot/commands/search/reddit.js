@@ -14,11 +14,11 @@ class RedditCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** I can't search a subreddit without one!`);
-        const ctx = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Searching for subreddit \`${args[0]}\`!`);
+        if (!args[0]) return msg.channel.createMessage(`<:konatacry:710895046492160080> **|** I can't search a subreddit without one!`);
+        const ctx = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Searching for subreddit \`${args[0]}\`!`);
 
         const { body } = await this.bot.snek.get(`https://reddit.com/r/${args[0]}/about.json`);
-        if (!('display_name' in body.data)) return msg.channel.createMessage('<:KonataCry:582307198957387795> **|** Unavaliable subreddit.');
+        if (!('display_name' in body.data)) return msg.channel.createMessage('<:konatacry:710895046492160080> **|** Unavaliable subreddit.');
         await ctx.delete();
         msg.channel.createMessage({ embed: {
             title: `${body.data.title}`,

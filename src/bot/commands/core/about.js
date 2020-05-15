@@ -14,7 +14,7 @@ class AboutCommand extends Command {
     async execute(msg, args) {
         return msg.channel.createMessage({ embed: {
             title: "__**About Konata Izumi**__",
-            description: "<:KonataHi:582320118592176138> **Hello! I'm Konata, your weeb helper!**\n\t<:KonataOwO:582320118680518676> I provide you everything that you want in your server:\n\n__**Features**__\n\t:ribbon: Moderation commands!\n\t:ribbon: Utilitized commands\n\t:ribbon: and much more!\n\t:heart: I was made by DELECTABLE Day Yay#0211, 9881youlove#0037",
+            description: "<:konataHi:710895044847992853> **Hello! I'm Konata, your weeb helper!**\n\t<:konataowo:710900227887857704> I provide you everything that you want in your server:\n\n__**Features**__\n\t:ribbon: Moderation commands!\n\t:ribbon: Utilitized commands\n\t:ribbon: and much more!\n\t:heart: I was made by DELECTABLE Day Yay#0211, 9881youlove#0037",
             fields: [{
                 name: "Guilds",
                 value: this.bot.guilds.size,

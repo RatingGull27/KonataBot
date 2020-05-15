@@ -25,7 +25,7 @@ class NPMCommand extends Command {
 
         const pkg = encodeURIComponent(args[0].replace(/ /g, '-'));
         const { body } = await this.bot.snek.get(`https://registry.npmjs.com/${pkg}`);
-        if (body.time.unpublished) return m.edit(`<:KonataYawn:582320117568897083> **|** \`${pkg}\` is unpublished.`);
+        if (body.time.unpublished) return m.edit(`<:KonataYawn:710895044831477774> **|** \`${pkg}\` is unpublished.`);
         const version = body.versions[body['dist-tags'].latest];
         const maintainers = this.bot.utils.trimArray(body.maintainers.map(u => u.name));
         const dependencies = version.dependencies ? this.bot.utils.trimArray(Object.keys(version.dependencies)) : null;

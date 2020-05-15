@@ -14,7 +14,7 @@ class PatCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!msg.mentions[0]) return msg.channel.createMessage('<:owoThink:582320118173007883> **|** I can\'t pat anyone without a mention!');
+        if (!msg.mentions[0]) return msg.channel.createMessage('<:owothink:710895044818763826> **|** I can\'t pat anyone without a mention!');
 
         const { body } = await this.bot.snek.get('https://nekos.life/api/v2/img/pat');
         msg.channel.createMessage({ embed: {

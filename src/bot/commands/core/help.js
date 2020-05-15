@@ -7,7 +7,6 @@ class HelpCommand extends Command {
             desc: 'Gives the user a full list of commands or gives extended help.',
             usage: 'help [command | alias]',
             aliases: ['commands', 'command', 'cmds', 'halp', 'h', '?'],
-            ownerOnly: true,
             examples: ['konata help help', 'k;help']
         });
     }
@@ -87,7 +86,7 @@ class HelpCommand extends Command {
                 color: this.bot.utils.color
             }});
         } catch(err) {
-            return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** Command "${args[0]}" hasn't been found. :<`);
+            return msg.channel.createMessage(`<:konatacry:710895046492160080> **|** Command "${args[0]}" hasn't been found. :<`);
         }
     }
 }

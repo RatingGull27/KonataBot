@@ -15,14 +15,14 @@ class analCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/anal');
+        const neko = await this.bot.snek.get('https://purrbot.site/api/img/nsfw/anal/gif');
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
             content: ` here is your anal:`,
             embed: {
                 image: {
-                    url: neko.body.url
+                    link: `${link}`
                 },
                 color: this.bot.utils.color
             }});

@@ -20,7 +20,7 @@ class CuddleCommand extends Command {
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
-            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to cuddle with someone; You're cuddling with me!`,
+            content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention}: Since your didn't want to cuddle with someone; You're cuddling with me!`,
             embed: {
                 image: {
                     url: neko.body.url
@@ -29,7 +29,7 @@ class CuddleCommand extends Command {
             }});
         } else {
                 msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is cuddling <@${msg.mentions[0].id}>`,
+                    content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention} is cuddling <@${msg.mentions[0].id}>`,
                     embed: {
                         image: {
                             url: neko.body.url

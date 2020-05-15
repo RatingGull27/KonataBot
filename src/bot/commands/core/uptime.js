@@ -11,7 +11,7 @@ class UptimeCommand extends Command {
     }
 
     async execute(msg, args) {
-        return msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** I have been up for ${await this.bot.utils.formatDuration(process.uptime())}!`);
+        return msg.channel.createMessage(`<:konataok:710895044902649996> **|** I have been up for ${await this.bot.utils.formatDuration(process.uptime())}!`);
     }
 }
 

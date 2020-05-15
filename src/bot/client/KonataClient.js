@@ -96,7 +96,7 @@ class KonataClient extends Eris.Client {
         await this.disconnect({
             reconnect: false
         });
-        this.utils.sleep(60000); // Sleeps for 60 seconds
+        this.utils.sleep(90000); // Sleeps for 90 seconds
         await this.launch();
     }
 }

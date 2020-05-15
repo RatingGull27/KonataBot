@@ -18,10 +18,10 @@ class TestTokenCommand extends Command {
             return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** You must enter a token before doing this command!`);
         }
 
-        const ctx = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Testing token...`);
+        const ctx = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Testing token...`);
         const client = new Eris(args[0]);
         client.on('ready', () => {
-            ctx.edit(`<:KonataOwO:582320118680518676> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}** guilds.`);
+            ctx.edit(`<:konataowo:710900227887857704> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}** guilds.`);
             client.disconnect({
                 reconnect: false
             });

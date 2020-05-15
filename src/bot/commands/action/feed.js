@@ -19,7 +19,7 @@ class FeedCommand extends Command {
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
-            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to feed with someone; You're feeding with me!`,
+            content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention}: Since your didn't want to feed with someone; You're feeding with me!`,
             embed: {
                 image: {
                     url: neko.body.url
@@ -28,7 +28,7 @@ class FeedCommand extends Command {
             }});
         } else {
                 msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is feeding <@${msg.mentions[0].id}>`,
+                    content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention} is feeding <@${msg.mentions[0].id}>`,
                     embed: {
                         image: {
                             url: neko.body.url

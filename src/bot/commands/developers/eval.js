@@ -15,7 +15,7 @@ class EvalCommand extends Command {
 
     async execute(msg, args) {
         if (!args[0]) {
-            return msg.channel.createMessage(`<:KonataYawn:582320117568897083> **|** Invalid usage! Use \`${this.bot.config.prefix}help eval\`!`);
+            return msg.channel.createMessage(`<:KonataYawn:710895044831477774> **|** Invalid usage! Use \`${this.bot.config.prefix}help eval\`!`);
         } else {
             let res;
             try {

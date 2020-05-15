@@ -14,7 +14,7 @@ class FuckMyLifeCommand extends Command {
     }
 
     async execute(msg, args) {
-        const m = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Grabbing a fuck my life quote..`);
+        const m = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Grabbing a fuck my life quote..`);
 
         const { body } = await this.bot.snek.get('http://www.fmylife.com/random');
         const $ = c.load(body);
@@ -23,7 +23,7 @@ class FuckMyLifeCommand extends Command {
         try {
             m.edit(`:mega: **|** ${quote}`);
         } catch(err) {
-            m.edit(`<:KonataCry:582307198957387795> **|** An error has occured: \`${err.message}\`. Try again!`);
+            m.edit(`<:konatacry:710895046492160080> **|** An error has occured: \`${err.message}\`. Try again!`);
         }
     }
 }

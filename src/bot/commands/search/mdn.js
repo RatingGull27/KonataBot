@@ -19,9 +19,9 @@ class MDNCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** I can't search the Mozilla Developer Network without any searches! Use the \`${this.bot.config.prefix}help mdn\` command!`);
+        if (!args[0]) return msg.channel.createMessage(`<:konatacry:710895046492160080> **|** I can't search the Mozilla Developer Network without any searches! Use the \`${this.bot.config.prefix}help mdn\` command!`);
 
-        const m = await msg.channel.createMessage(`<:KonataOk:582321624196448272> **|** Searching the Mozilla Developer Network...`);
+        const m = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Searching the Mozilla Developer Network...`);
         const { body } = await this.bot.snek
             .get('https://developer.mozilla.org/en-US/search.json')
             .query({
@@ -30,7 +30,7 @@ class MDNCommand extends Command {
                 highlight: false
             });
 
-        if (!body.documents.length) return m.edit(`<:KonataCry:582307198957387795> **|** No results found.`);
+        if (!body.documents.length) return m.edit(`<:konatacry:710895046492160080> **|** No results found.`);
         const data = body.documents[0];
         await m.delete();
         msg.channel.createMessage({ embed: {

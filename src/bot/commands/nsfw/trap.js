@@ -22,7 +22,7 @@ class trapCommand extends Command {
             content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to trap with someone; You're trap me!`,
             embed: {
                 image: {
-                    url: neko.body.url
+                    url: imageUrl
                 },
                 color: this.bot.utils.color
             }});
@@ -31,7 +31,7 @@ class trapCommand extends Command {
                     content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is traping <@${msg.mentions[0].id}>`,
                     embed: {
                         image: {
-                            url: neko.body.url
+                            url: imageUrl
                         },
                         color: this.bot.utils.color
                 }});

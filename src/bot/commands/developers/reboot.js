@@ -13,9 +13,9 @@ class RebootCommand extends Command {
     }
 
     async execute(msg, args) {
-        msg.channel.createMessage('<:KonataCry:582307198957387795> **|** I am being rebooted... :<');
+        msg.channel.createMessage('<:konatacry:710895046492160080> **|** I am being rebooted... :<');
         await this.bot.reboot();
-        msg.channel.createMessage('<:KonataHi:582320118592176138> **|** Yayy~ I\'m back. owo');
+        msg.channel.createMessage('<:konataHi:710895044847992853> **|** Yayy~ I\'m back. owo');
     }
 }
 

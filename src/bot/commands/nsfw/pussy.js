@@ -23,6 +23,7 @@ class pussyCommand extends Command {
             embed: {
                 image: {
                     url: neko.body.url
+            
                 },
                 color: this.bot.utils.color
             }});
