@@ -40,26 +40,26 @@ class MessageEvent extends BaseEvent {
 
         setInterval(() => {
             this.bot.cooldowns.delete(msg.author.id);
-        }, cmd.options.cooldown * 1000);
+        }, cmd.options.cooldown * 10);
 
         if (cmd) {
             if (cmd.options.nsfwOnly && !msg.channel.nsfw) {
-                return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
+                return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
             }
 
             if (cmd.options.guildOnly && msg.channel.dm) {
-                return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** Y-you might wanna be in a guild to execute this command.`);
+                return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** Y-you might wanna be in a guild to execute this command.`);
             }
 
             if (cmd.options.ownerOnly && !msg.author.id) {
-               return msg.channel.createMessage(`<:KonataDreaming:582307197829251073> **|** You don't have permission to execute this! >~<`);
+               return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** You don't have permission to execute this! >~<`);
             }
 
             try {
                 bot.commandsExecuted++;
                 cmd.execute(msg, args);
             } catch(err) {
-                msg.channel.createMessage(`<:KonataCry:582307914308386820> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
+                msg.channel.createMessage(`<:konatacry:710895046492160080> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
             }
         }
     }
