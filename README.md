@@ -43,3 +43,5 @@ If you need help with Konata. You can join our support server.
     * Update package.json
  * v0.2.0:
     * Fix the package.json
+ * v0.2.5:
+    * Update the files
