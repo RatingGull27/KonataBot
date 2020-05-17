@@ -3,7 +3,7 @@
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 
 ## Installation
-We will not show you how to install Konata ( Come soon )
+We will not show you how to install Konata
 
 ### Libraries
 * Node.js => Runtime environment,
