@@ -1,6 +1,13 @@
 {
     "apps": [{
         "name": "KonataBot",
-        "script": "./src/bot/Konata.js"
-    }]
-}
+        "script": "./src/bot/Konata.js",
+        "restart_delay": 3000,
+        "watch": ["server", "client"],
+        "watch_delay": 1000,
+        "ignore_watch" : ["node_modules", "client/img"],
+        "watch_options": {
+          "followSymlinks": false
+        }
+      }]
+    }
