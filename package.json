@@ -12,7 +12,7 @@
         "express": "4.17.1",
         "figlet": "1.4.0",
         "humanize-duration": "3.22.0",
-        "kitsu": "9.0.6",
+        "kitsu": "9.0.7",
         "node-fetch": "2.6.0",
         "random-puppy": "1.1.0",
         "rethinkdbdash": "2.3.31",
