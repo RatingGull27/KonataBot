@@ -15,7 +15,6 @@ jobs:
     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
   
-
     strategy:
       matrix:
         node-version: [5.x, 10.x, 12.x, 14.x]
