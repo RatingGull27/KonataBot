@@ -1,6 +1,6 @@
 {
     "name": "konatabot",
-    "description": "Konata is a multipurpose discord bot that you can use for Moderation, Music, Memes, with a lovely dashboard.",
+    "description": "Konata is a multipurpose discord bot that you can use for Moderation, Memes, with a lovely dashboard.",
     "version": "0.2.5",
     "dependencies": {
         "bluebird": "3.7.2",
