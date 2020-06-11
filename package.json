@@ -11,7 +11,7 @@
         "eris-lavalink": "1.0.2",
         "express": "4.17.1",
         "figlet": "1.4.0",
-        "humanize-duration": "3.23.0",
+        "humanize-duration": "3.23.1",
         "kitsu": "9.1.10",
         "node-fetch": "2.6.0",
         "random-puppy": "1.1.0",
