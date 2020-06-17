@@ -1,6 +1,5 @@
 # Konata Izumi 
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
-[![Discord_Support](https://img.shields.io/discord/627371862023864340.svg?style=flat-square&logo=discord&label=Support&colorB=7289DA)](https://discordapp.com/invite/buunN3V)
 [![CodeFactor](https://www.codefactor.io/repository/github/ratinggull27/konatabot/badge)](https://www.codefactor.io/repository/github/ratinggull27/konatabot)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 
@@ -13,8 +12,6 @@ We will not show you how to install Konata
 
 ## Support
 If you need help with Konata. You can join our support server.
-
-[![Konata's Hangout](https://discordapp.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/buunN3V)
 
 ## Credits
 * auguwu => fist author to make this bot with the code,
