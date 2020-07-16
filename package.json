@@ -10,7 +10,7 @@
         "eris": "0.13.3",
         "eris-lavalink": "1.0.2",
         "express": "4.17.1",
-        "figlet": "1.4.0",
+        "figlet": "1.5.0",
         "humanize-duration": "3.23.1",
         "kitsu": "9.1.11",
         "node-fetch": "2.6.0",
