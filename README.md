@@ -40,5 +40,5 @@ If you need help with Konata. You can join our support server.
     * Fix the package.json
  * v0.2.5:
     * Update the files
- * v.3.0:
+ * v0.3.0:
     * Remove the Database tank up cpu and ram
