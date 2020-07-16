@@ -6,9 +6,6 @@ Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) 
 ## Installation
 We will not show you how to install Konata
 
-### Libraries
-* RethinkDB => Database
-
 ## Support
 If you need help with Konata. You can join our support server.
 
