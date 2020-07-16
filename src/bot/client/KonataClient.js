@@ -23,7 +23,6 @@ class KonataClient extends Eris.Client {
         });
         this.gearbox = new Gearbox(this);
         this.kitsu = new KitsuClient();
-        this.r = require('../database/Database');
         this.utils = require('../../utils/Util');
         this.snek = require('snekfetch');
         this.messages = 0;
