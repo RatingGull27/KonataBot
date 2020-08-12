@@ -21,7 +21,7 @@ class InviteMeCommand extends Command {
             },
             {
                 name: '» Discord',
-                value: 'https://discord.gg/buunN3V'
+                value: 'https://discord.gg/tw5D3Uu'
             }],
             color: this.bot.utils.color
         }});
