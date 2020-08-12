@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/swfn/neko");
+
 class NekoCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -12,17 +14,8 @@ class NekoCommand extends Command {
         });
     }
 
-    async execute(msg, args) {
-        const { body } = await this.bot.snek.get('https://nekos.life/api/neko');
-
-        msg.channel.createMessage({ embed: {
-            title: "Konata Izumi » Neko",
-            description: `${msg.author.mention}, here is your neko:`,
-            image: {
-                url: `${body.neko}`
-            },
-            color: this.bot.utils.color
-        }});
+    async execute(msg, arg) {
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 
