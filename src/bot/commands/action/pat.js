@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/swfn/pat")
+
 class PatCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -14,17 +16,10 @@ class PatCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!msg.mentions[0]) return msg.channel.createMessage('<:owothink:710895044818763826> **|** I can\'t pat anyone without a mention!');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a pat..');
 
-        const { body } = await this.bot.snek.get('https://nekos.life/api/v2/img/pat');
-        msg.channel.createMessage({ embed: {
-            title: "Konata Izumi » Pat Pat",
-            description: `${msg.author.username} *pats* ${msg.mentions[0].username}!`,
-            image: {
-                url: body.url
-            },
-            color: this.bot.utils.color
-        }});
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

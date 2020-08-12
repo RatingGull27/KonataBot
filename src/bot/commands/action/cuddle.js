@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/swfn/cuddle");
+
 class CuddleCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -16,27 +18,10 @@ class CuddleCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/cuddle');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a cuddle..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention}: Since your didn't want to cuddle with someone; You're cuddling with me!`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        } else {
-                msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention} is cuddling <@${msg.mentions[0].id}>`,
-                    embed: {
-                        image: {
-                            url: neko.body.url
-                        },
-                        color: this.bot.utils.color
-                }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 
