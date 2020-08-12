@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/swfn/cat");
+
 class CatCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -17,21 +19,10 @@ class CatCommand extends Command {
     }
 
     async execute(msg, args) {
-        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a cat..');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a kiss..');
 
-        const { body } = await this.bot.snek.get('https://nekos.life/api/v2/img/meow');
         await ctx.delete();
-        msg.channel.createMessage({
-            content: ':white_check_mark: **|** Here is your cat!',
-            embed: {
-                title: "Click me if the image failed!",
-                url: `${body.url}`,
-                image: {
-                    url: `${body.url}`
-                },
-                color: this.bot.utils.color
-            }
-        });
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

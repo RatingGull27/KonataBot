@@ -19,7 +19,7 @@ class BirbCommand extends Command {
     async execute(msg, args) {
         const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a birb..');
 
-        const { body } = await this.bot.snek.get('https://random.birb.pw/tweet');
+        const { body } = await this.client.snek.get('https://random.birb.pw/tweet');
         await ctx.delete();
         msg.channel.createMessage({
             content: ':white_check_mark: **|** Here is your birb!',
