@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/pussy");
+
 class pussyCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,20 +17,8 @@ class pussyCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/pussy');
-
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your pussy:`,
-            embed: {
-                image: {
-                    url: neko.body.url
-            
-                },
-                color: this.bot.utils.color
-            }});
+            msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
         }
     }
-}
 
 module.exports = pussyCommand;

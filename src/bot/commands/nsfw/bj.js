@@ -22,7 +22,7 @@ class bjCommand extends Command {
             content: ` here is your bj:`,
             embed: {
                 image: {
-                    url: neko.body.url
+                    url: url.body
                 },
                 color: this.bot.utils.color
             }});

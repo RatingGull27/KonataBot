@@ -10,19 +10,23 @@ class cumCommand extends Command {
             examples: [
                 '{prefix}cum',
             ],
-            cooldown: 5
+            cooldown: 1
         });
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/cum');
+        const m = await msg.channel.createMessage('<:owothink:710895044818763826> **|** Grabbing that cum  picture!');
+        const body = await this.bot.snek.get('https://nekos.life/api/v2/img/cum');
 
         if (!msg.mentions[0]) {
             msg.channel.createMessage({ 
             content: ` here is your cum:`,
             embed: {
+                link: {
+                    url: body.url
+                },
                 image: {
-                    url: neko.body.url
+                    url: body.url
                 },
                 color: this.bot.utils.color
             }});
