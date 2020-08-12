@@ -7,7 +7,6 @@ const { DadJokeClient } = require('dadjoke.js');
 const KitsuClient = require('kitsu');
 const Gearbox = require('../modules/Gearbox');
 const fs = require('fs');
-const WebhookClient = require('../../utils/webhook/WebhookClient');
 const MessageCollector = require('../../utils/collector/MessageCollector');
 
 class KonataClient extends Eris.Client {
