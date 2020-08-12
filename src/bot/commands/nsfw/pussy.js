@@ -17,8 +17,11 @@ class pussyCommand extends Command {
     }
 
     async execute(msg, args) {
-            msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
-        }
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a pussy..');
+
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
+}
 
 module.exports = pussyCommand;

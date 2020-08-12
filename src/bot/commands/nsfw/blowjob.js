@@ -17,6 +17,9 @@ class blowjobCommand extends Command {
     }
 
     async execute(msg, args) {
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a blowjob..');
+
+        await ctx.delete();
         msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }

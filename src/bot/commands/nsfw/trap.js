@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/trap");
+
 class trapCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,27 +17,10 @@ class trapCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/trap');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a trap..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention}: Since your didn't want to trap with someone; You're trap me!`,
-            embed: {
-                image: {
-                    url: imageUrl
-                },
-                color: this.bot.utils.color
-            }});
-        } else {
-                msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:582307197829251073> **|** ${msg.author.mention} is traping <@${msg.mentions[0].id}>`,
-                    embed: {
-                        image: {
-                            url: imageUrl
-                        },
-                        color: this.bot.utils.color
-                }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

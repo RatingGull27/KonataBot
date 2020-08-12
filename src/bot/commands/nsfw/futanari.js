@@ -17,6 +17,9 @@ class futanariCommand extends Command {
     }
 
     async execute(msg, args) {
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a futanari..');
+
+        await ctx.delete();
         msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }

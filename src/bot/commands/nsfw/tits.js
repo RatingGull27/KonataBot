@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/tits");
+
 class titsCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,18 +17,10 @@ class titsCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/tits');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a tits..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your tits:`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/eroyuri");
+
 class eroyuriCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,18 +17,10 @@ class eroyuriCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/eroyuri');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a eroyuri..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your eroyuri:`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

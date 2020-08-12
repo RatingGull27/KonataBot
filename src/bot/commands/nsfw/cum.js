@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/cum");
+
 class cumCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,22 +17,10 @@ class cumCommand extends Command {
     }
 
     async execute(msg, args) {
-        const m = await msg.channel.createMessage('<:owothink:710895044818763826> **|** Grabbing that cum  picture!');
-        const body = await this.bot.snek.get('https://nekos.life/api/v2/img/cum');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a cum..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your cum:`,
-            embed: {
-                link: {
-                    url: body.url
-                },
-                image: {
-                    url: body.url
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 
