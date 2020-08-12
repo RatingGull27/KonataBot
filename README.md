@@ -14,7 +14,7 @@ We will not show you how to install Konata ( Come soon )
 ## Support
 If you need help with Konata. You can join our support server.
 
-[![Konata's Hangout](https://discord.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/tw5D3Uu)
+[![Konata's Hangout](https://discord.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
 
 ## Credits
 * auguwu => fist author to make this bot with the code;
