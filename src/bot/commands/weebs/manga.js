@@ -14,7 +14,7 @@ class MangaCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage('<:owoThink:582320118173007883> **|** I can\'t search an anime without one! >////<');
+        if (!args[0]) return msg.channel.createMessage('<:owothink:743078005689155595> **|** I can\'t search an anime without one! >////<');
 
         const { data } = await this.bot.kitsu.fetch('manga', {
             filter: {
