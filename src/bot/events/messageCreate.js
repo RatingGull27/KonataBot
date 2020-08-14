@@ -44,22 +44,22 @@ class MessageEvent extends BaseEvent {
 
         if (cmd) {
             if (cmd.options.nsfwOnly && !msg.channel.nsfw) {
-                return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
+                return msg.channel.createMessage(`<:KonataDreaming:743078005861253140> **|** Planning to use my nsfw commands? You need to be in a nsfw channel! hehe~`);
             }
 
             if (cmd.options.guildOnly && msg.channel.dm) {
-                return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** Y-you might wanna be in a guild to execute this command.`);
+                return msg.channel.createMessage(`<:KonataDreaming:743078005861253140> **|** Y-you might wanna be in a guild to execute this command.`);
             }
 
             if (cmd.options.ownerOnly && !msg.author.id) {
-               return msg.channel.createMessage(`<:KonataDreaming:710895044504322099> **|** You don't have permission to execute this! >~<`);
+               return msg.channel.createMessage(`<:KonataDreaming:743078005861253140> **|** You don't have permission to execute this! >~<`);
             }
 
             try {
                 bot.commandsExecuted++;
                 cmd.execute(msg, args);
             } catch(err) {
-                msg.channel.createMessage(`<:konatacry:710895046492160080> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
+                msg.channel.createMessage(`<:konatacry:743078005672247338> **|** Woops! An error has occured while executing that command.\nSend \`\`\`${bot.utils.codeblock('js', err.stack)}\`\`\` to my support server: ${bot.config.links.discord}`);
             }
         }
     }

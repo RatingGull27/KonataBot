@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/futanari");
+
 class futanariCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,19 +17,12 @@ class futanariCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/futanari');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a futanari..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your futanari:`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
+
 
 module.exports = futanariCommand;

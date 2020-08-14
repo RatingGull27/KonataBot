@@ -1,33 +1,27 @@
 const Command = require('../../structures/BaseCommand');
 
-class erofeetCommand extends Command {
+const data = require("../../lib/image/nsfw/erofeet");
+
+class erofeetsCommand extends Command {
     constructor(bot) {
         super(bot, {
-            name: 'erofeet',
-            desc: 'erofeet a user!',
+            name: 'erofeets',
+            desc: 'erofeests a user!',
             category: 'nsfw',
             nsfwOnly: true,
             examples: [
-                '{prefix}erofeet',
+                '{prefix}erofeets',
             ],
             cooldown: 5
         });
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/erofeet');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a erofeets..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your erofeet:`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 
-module.exports = erofeetCommand;
+module.exports = erofeetsCommand;

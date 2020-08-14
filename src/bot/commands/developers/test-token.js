@@ -15,18 +15,18 @@ class TestTokenCommand extends Command {
 
     async execute(msg, args) {
         if (!args[0]) {
-            return msg.channel.createMessage(`<:KonataCry:582307198957387795> **|** You must enter a token before doing this command!`);
+            return msg.channel.createMessage(`<:KonataCry:743078005672247338> **|** You must enter a token before doing this command!`);
         }
 
-        const ctx = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Testing token...`);
+        const ctx = await msg.channel.createMessage(`<:konataok:743078006029025362> **|** Testing token...`);
         const client = new Eris(args[0]);
         client.on('ready', () => {
-            ctx.edit(`<:konataowo:710900227887857704> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}** guilds.`);
+            ctx.edit(`<:konataowo:743078005978693683> **|** Logged in as \`${client.user.username}\` with **${client.guilds.size}** guilds.`);
             client.disconnect({
                 reconnect: false
             });
         });
-        client.on('disconnect', () => ctx.edit(`<:KonataCry:582307198957387795> **|** Client got disconnected, maybe it's invalid?`));
+        client.on('disconnect', () => ctx.edit(`<:KonataCry:743078005672247338> **|** Client got disconnected, maybe it's invalid?`));
         client.connect();
     }
 }

@@ -33,16 +33,6 @@ module.exports = (bot) => { // The website will start when the bot is ready.
         });
     });
 
-    //app.get('/api/konata', (req, res) => {
-        //randomFile('../../website/public/images', (err, file) => {
-            //if(err) { 
-               // res.status(500).json({ code: 500, message: 'Internal Server Error..' }); 
-               // bot.log.error(`500 Internal Server Error:\n${err.stack}`);
-           // }
-           // res.status(200).json({ url: `http://localhost:8125/images/${file}` });
-       // });
-   // });
-
     app.get('/api/statistics', (req, res) => { // API ;; To send the statistics.
         res.send(JSON.stringify({
             guilds: bot.guilds.size,
@@ -58,7 +48,7 @@ module.exports = (bot) => { // The website will start when the bot is ready.
     });
 
     app.get('/discord', (req, res) => {
-        res.redirect('https://discord.gg/buunN3V');
+        res.redirect('https://discord.gg/tw5D3Uu');
     });
 
     app.use((req, res) => {

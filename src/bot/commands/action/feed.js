@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/swfn/feed");
+
 class FeedCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,27 +17,10 @@ class FeedCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://nekos.life/api/v2/img/feed');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a feed..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention}: Since your didn't want to feed with someone; You're feeding with me!`,
-            embed: {
-                image: {
-                    url: neko.body.url
-                },
-                color: this.bot.utils.color
-            }});
-        } else {
-                msg.channel.createMessage({ 
-                    content: `<:KonataDreaming:710895044504322099> **|** ${msg.author.mention} is feeding <@${msg.mentions[0].id}>`,
-                    embed: {
-                        image: {
-                            url: neko.body.url
-                        },
-                        color: this.bot.utils.color
-                }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

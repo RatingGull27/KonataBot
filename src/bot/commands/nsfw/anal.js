@@ -1,5 +1,7 @@
 const Command = require('../../structures/BaseCommand');
 
+const data = require("../../lib/image/nsfw/anal");
+
 class analCommand extends Command {
     constructor(bot) {
         super(bot, {
@@ -15,18 +17,10 @@ class analCommand extends Command {
     }
 
     async execute(msg, args) {
-        const neko = await this.bot.snek.get('https://purrbot.site/api/img/nsfw/anal/gif');
+        const ctx = await msg.channel.createMessage(':mag: **|** Grabbing a anal..');
 
-        if (!msg.mentions[0]) {
-            msg.channel.createMessage({ 
-            content: ` here is your anal:`,
-            embed: {
-                image: {
-                    link: `${link}`
-                },
-                color: this.bot.utils.color
-            }});
-        }
+        await ctx.delete();
+        msg.channel.createMessage(data[Math.floor(Math.random() * data.length)]);
     }
 }
 

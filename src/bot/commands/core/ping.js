@@ -13,11 +13,11 @@ class PingCommand extends Command {
 
     async execute(msg, args) {
         if (!args[0]) {
-            return msg.channel.createMessage(`<:konatacry:710895046492160080> **|** Invalid argument, visit \`${this.bot.config.prefix}help ping\`!`);
+            return msg.channel.createMessage(`<:konatacry:743078005672247338> **|** Invalid argument, visit \`${this.bot.config.prefix}help ping\`!`);
         }
 
         if (msg.content.includes(' shard')) {
-            const message = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Getting shard ping...`);
+            const message = await msg.channel.createMessage(`<:konataok:743078006029025362> **|** Getting shard ping...`);
             
             if (this.bot.guildShardMap) {
                 let s = 0;
@@ -28,10 +28,10 @@ class PingCommand extends Command {
 
                 message.edit(`:ping_pong: **|** Here is the shard ping: \`\`\`prolog\n${this.bot.shards.map(shard => `${s === shard.id ? '>' : ' '}Shard ${shard.id} | ${shard.latency}ms`).join('\n')}\`\`\``);
             } else {
-                return message.edit(`<:konatacry:710895046492160080> **|** There isn't a shard map? Try again in a guild?`);
+                return message.edit(`<:konatacry:743078005672247338> **|** There isn't a shard map? Try again in a guild?`);
             }
         } else if (msg.content.includes(' message')) {
-            const ctx = await msg.channel.createMessage(`<:konataok:710895044902649996> **|** Getting message ping...`);
+            const ctx = await msg.channel.createMessage(`<:konataok:743078006029025362> **|** Getting message ping...`);
             const start = Date.now();
 
             await ctx.delete();

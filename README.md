@@ -1,22 +1,25 @@
 # Konata Izumi 
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
-[![CodeFactor](https://www.codefactor.io/repository/github/ratinggull27/konatabot/badge)](https://www.codefactor.io/repository/github/ratinggull27/konatabot)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
+[![Discord](https://discord.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
+> You may invite Konata [here](https://discord.com/oauth2/authorize?&client_id=466008883949994004&scope=bot&permissions=1651900225) into your discord server.
 
 ## Installation
-We will not show you how to install Konata
+We will not show you how to install Konata ( Come soon )
 
 ## Support
 If you need help with Konata. You can join our support server.
 
+[![Konata's Hangout](https://discord.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
+
 ## Credits
-* auguwu => fist author to make this bot with the code,
-* dragonfire => `Util#trimArray`, `Util#shorten`, and most of the search category commands,
-* Mayo => `reddit` command and most of the website core,
-* snarkyllama => `owoify`, `cringify`, and `avatar` commands,
-* discord.js team => `MessageCollector`, `Collector`, and `Collection` classes.,
-* ohlookitsderpy => `edits some code` only three commits,
-* YorkAARGH => `tiger`, `red-panda`, `penguin`, `panda`, and `lion` commands,
+* auguwu => fist author to make this bot with the code;
+* dragonfire => `Util#trimArray`, `Util#shorten`, and most of the search category commands;
+* Mayo => `reddit` command and most of the website core;
+* snarkyllama => `owoify`, `cringify`, and `avatar` commands;
+* discord.js team => `MessageCollector`, `Collector`, and `Collection` classes.;
+* ohlookitsderpy => `edits some code` only three commits;
+* YorkAARGH => `tiger`, `red-panda`, `penguin`, `panda`, and `lion` commands;
 * RatingGull27 => `nsfw` command and most of the fix up the on bot code and another thing
 
 ## Changelog
@@ -42,3 +45,7 @@ If you need help with Konata. You can join our support server.
     * Update the files
  * v0.3.0:
     * Remove the Database tank up cpu and ram
+ * v0.3.5"
+    * Change the snekfetch will not allow in nsfw, cat, neko and action commands so yea
+    * remove the search, avatar, animu-picure, megumin, owowify, fml and lizard coammdn
+    * Change the over to json for nsfw, cat, neko and action commands
