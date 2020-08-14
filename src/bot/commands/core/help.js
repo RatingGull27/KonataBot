@@ -86,7 +86,7 @@ class HelpCommand extends Command {
                 color: this.bot.utils.color
             }});
         } catch(err) {
-            return msg.channel.createMessage(`<:konatacry:710895046492160080> **|** Command "${args[0]}" hasn't been found. :<`);
+            return msg.channel.createMessage(`<:konatacry:743078005672247338> **|** Command "${args[0]}" hasn't been found. :<`);
         }
     }
 }
