@@ -15,7 +15,7 @@ class ExecCommand extends Command {
     }
 
     async execute(msg, args) {
-        if (!args[0]) return msg.channel.createMessage(`<:KonataYawn:710895044831477774> **|** Invalid usage! Use \`${this.bot.config.prefix}help exec\`!`);
+        if (!args[0]) return msg.channel.createMessage(`<:KonataYawn:743078005533966338> **|** Invalid usage! Use \`${this.bot.config.prefix}help exec\`!`);
 
         const m = await msg.channel.createMessage(`❯_ \`${args.join(' ')}\``);
         await exec(args.join(" "), (stderr, stdout, err) => {
