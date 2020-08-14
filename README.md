@@ -47,5 +47,5 @@ If you need help with Konata. You can join our support server.
     * Remove the Database tank up cpu and ram
  * v0.3.5"
     * Change the snekfetch will not allow in nsfw, cat, neko and action commands so yea
-    * remove the search, avatar, animu-picure, megumin, owowify, fml and lizard coammdn
+    * remove the search, avatar, animu-picure, megumin, owowify, fml and lizard commands
     * Change the over to json for nsfw, cat, neko and action commands
