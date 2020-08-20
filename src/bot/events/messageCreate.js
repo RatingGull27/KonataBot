@@ -38,9 +38,9 @@ class MessageEvent extends BaseEvent {
 
         this.bot.cooldowns.add(msg.author.id);
 
-        setInterval(() => {
+        setTimeout(() => {
             this.bot.cooldowns.delete(msg.author.id);
-        }, cmd.options.cooldown * 10);
+        }, cmd.options.cooldown * 1000);
 
         if (cmd) {
             if (cmd.options.nsfwOnly && !msg.channel.nsfw) {
