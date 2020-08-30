@@ -1,16 +1,20 @@
 # Konata Izumi 
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
-[![Discord](https://discord.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
-> You may invite Konata [here](https://discord.com/oauth2/authorize?&client_id=466008883949994004&scope=bot&permissions=1651900225) into your discord server.
+[![Discord](https://discordapp.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
+> You may invite Konata [here](https://discordapp.com/oauth2/authorize?&client_id=466008883949994004&scope=bot&permissions=1651900225) into your discord server.
 
 ## Installation
-We will not show you how to install Konata ( Come soon )
+* Install Node.js link: https://nodejs.org/en/ click on LTS install.
+* Go edit the config files in `KonataBot/src/bot/config.json` and edit token.
+* Open the cmd in windows type: `npm i`.
+* When keep the open cmd type: `pm2 start pm2.json`
+* After you need invite your bot with link: https://discordapp.com/oauth2/authorize?&client_id=(your client id)&scope=bot&permissions=1651900225
 
 ## Support
 If you need help with Konata. You can join our support server.
 
-[![Konata's Hangout](https://discord.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
+[![Konata's Hangout](https://discordapp.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/tw5D3Uu)
 
 ## Credits
 * auguwu => fist author to make this bot with the code;
@@ -35,17 +39,19 @@ If you need help with Konata. You can join our support server.
    * `nsfw` category;
    * fix up some of issues with the bot.
 * v0.1.7:
-    * Update the Readme
-    * Update arother thing
+    * Update the `Readme`
+    * Update `arother thing`
  * v0.1.8:
-    * Update package.json
+    * Update `package.json`
  * v0.2.0:
-    * Fix the package.json
+    * Fix the `package.json`
  * v0.2.5:
-    * Update the files
+    * Update the `files`
  * v0.3.0:
-    * Remove the Database tank up cpu and ram
+    * Remove the `Database tank up cpu and ram`
  * v0.3.5"
-    * Change the snekfetch will not allow in nsfw, cat, neko and action commands so yea
-    * remove the search, avatar, animu-picure, megumin, owowify, fml and lizard commands
-    * Change the over to json for nsfw, cat, neko and action commands
+    * Change the snekfetch will not allow in `nsfw`, `cat`, `neko` and `action` commands so yea
+    * remove the `search`, `avatar`, `animu-picure`, `megumin`, `owowify`, `fml` and `lizard` commands
+    * Change the over to json for `nsfw`, `cat`, `neko` and `action` commands
+ * v0.3.5 [Pre-release]
+    * Edit the readme for `setup install npm/node` and `setup discord bot`.
