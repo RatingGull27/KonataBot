@@ -5,7 +5,7 @@ Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) 
 > You may invite Konata [here](https://discord.com/oauth2/authorize?&client_id=466008883949994004&scope=bot&permissions=1651900225) into your discord server.
 
 ## Installation
-We will not show you how to install Konata ( Come soon )
+Work on it.
 
 ## Support
 If you need help with Konata. You can join our support server.
