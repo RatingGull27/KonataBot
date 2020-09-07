@@ -1,14 +1,15 @@
 {
   "extends": [
     "config:base"
+    },
     "timezone": "America/New_York",
-  "schedule": "before 5am every weekday",
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": "after 10pm on sunday"
-  },
-  "packageRules": [{
-    "packageNames": ["package"],
-    "schedule": "before 5pn everyday"
+     "schedule": "before 5am every weekday",
+      "lockFileMaintenance": {
+       "enabled": true,
+        "schedule": "after 10pm on sunday"
+     },
+       "packageRules": [{
+       "packageNames": ["package.json"],
+        "schedule": "before 5pn everyday"
   }]
 }
