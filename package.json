@@ -1,7 +1,13 @@
 {
     "name": "konatabot",
     "description": "Konata is a multipurpose discord bot that you can use for Moderation, Music, Memes, with a lovely dashboard.",
+    "main": "src/Konata.js",
     "version": "0.3.5",
+    "license": "MIT",
+    "scripts": {
+        "start": "node src/Konata.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
     "dependencies": {
         "bluebird": "3.7.2",
         "dadjoke.js": "0.0.2",
@@ -12,13 +18,18 @@
         "figlet": "1.5.0",
         "humanize-duration": "3.23.1",
         "kitsu": "9.1.12",
+        "pm2": "^4.4.1",
         "random-puppy": "1.1.0",
-        "sj.reggol": "0.2.1",
+        "sj.reggol": "^1.1.3",
         "snekfetch": "4.0.4",
+        "uwebsockets.js": "^18.3.3",
         "uws": "100.0.1",
         "xml2js": "0.4.23"
     },
-    "author": "RatingGull27",
+    "author": {
+        "name": "RatingGull27",
+        "url": "https://9881youlove.wixsite.com/9881youlove"
+    },
     "bugs": {
         "url": "https://github.com/RatingGull27/KonataBot/issues"
     },
