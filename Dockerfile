@@ -1,4 +1,4 @@
-FROM node:14.9.0
+FROM node:14.10.0
 WORKDIR KonataBot
 COPY package.json *
 COPY . .
