@@ -2,7 +2,6 @@
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 [![Discord](https://discordapp.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
-> You may invite Konata [here](https://discordapp.com/oauth2/authorize?&client_id=466008883949994004&scope=bot&permissions=1651900225) into your discord server.
 
 ## Installation
 * Install Node.js link: https://nodejs.org/en/ click on LTS install.
@@ -49,9 +48,11 @@ If you need help with Konata. You can join our support server.
     * Update the `files`
  * v0.3.0:
     * Remove the `Database tank up cpu and ram`
- * v0.3.5"
+ * v0.3.5:
     * Change the snekfetch will not allow in `nsfw`, `cat`, `neko` and `action` commands so yea
     * remove the `search`, `avatar`, `animu-picure`, `megumin`, `owowify`, `fml` and `lizard` commands
     * Change the over to json for `nsfw`, `cat`, `neko` and `action` commands
- * v0.3.5 [Pre-release]
+ * v0.3.5: [Pre-release]
     * Edit the readme for `setup install npm/node` and `setup discord bot`.
+ * v0.3.6:
+    * The Dev was work on this bot code have stop working on it but stay open source just put into archived.
