@@ -56,3 +56,5 @@ If you need help with Konata. You can join our support server.
     * Edit the readme for `setup install npm/node` and `setup discord bot`.
  * v0.3.6:
     * The Dev was work on this bot code have stop working on it but stay open source just put into archived.
+ * v0.3.7:
+    * Update the config.
