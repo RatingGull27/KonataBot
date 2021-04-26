@@ -1,7 +1,6 @@
 # Konata Izumi 
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
-[![Discord](https://discordapp.com/api/guilds/627371862023864340/embed.png)](https://discord.gg/tw5D3Uu)
 
 ## Installation
 * Install Node.js link: https://nodejs.org/en/ click on LTS install.
@@ -13,7 +12,7 @@ Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) 
 ## Support
 If you need help with Konata. You can join our support server.
 
-[![Konata's Hangout](https://discordapp.com/api/guilds/627371862023864340/embed.png?style=banner3)](https://discord.gg/tw5D3Uu)
+Note: If you need any help with the bot when [Chat for Support](https://keybase.io/9881youlove#_) click on Chat with 9881youlove
 
 ## Credits
 * auguwu => fist author to make this bot with the code;
