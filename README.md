@@ -2,6 +2,8 @@
 ![Node.js CI](https://github.com/RatingGull27/KonataBot/workflows/Node.js%20CI/badge.svg?branch=master)
 Konata is a multi-modular discord bot made in the [Eris](https://abal.moe/Eris) library.
 
+# This repository is deprecated as is KonataBot by werewolf26 and no longer will be maintained.
+
 ## Installation
 * Install Node.js link: https://nodejs.org/en/ click on LTS install.
 * Go edit the config files in `KonataBot/src/bot/config.json` and edit token.
